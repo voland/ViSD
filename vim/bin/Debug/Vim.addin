@@ -1,0 +1,20 @@
+﻿<AddIn name        = "Vim"
+       author      = "voland"
+       url         = ""
+       description = "TODO: Put description here">
+	
+	<Manifest>
+		<Identity name="Vimek">Voland.Vim</Identity>
+		<Dependency addin="SharpDevelop" version="4.0"/>
+	</Manifest>
+	
+	<Runtime>
+		<Import assembly = "Vim.dll"/>
+	</Runtime>
+	
+	<Path name = "/Workspace/Tools">
+		<MenuItem id =g "VimCommand1"
+		          label = "Vim"
+		          class = "Vim.ToolCommand1"/>
+	</Path>
+</AddIn>
