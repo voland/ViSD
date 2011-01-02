@@ -1,21 +1,23 @@
 ﻿<AddIn name        = "Vim"
-       author      = "voland"
+       author      = "Voland"
        url         = ""
-       description = "TODO: Put description here">
+       description = "Vim keybinding emulator">
         
-        <Manifest>
-l                <Identity name="Vimek">Voland.Vim</Identity>
-                
-                
-                <Dependency in="SharpDevelop" version="4.0"/>        </Manifest>
-        
+  <!--      <Manifest>
+                <Identity>Voland.Vim</Identity>
+                <Dependency in="SharpDevelop" version="4.0"/>
+        </Manifest>
+        -->
         <Runtime>
                 <Import assembly = "Vim.dll"/>
         </Runtime>
         
-        <Path name = "/Workspace/Tools">
+        <Path name="/Workspace/Autostart">
+                <Class id="VimCommand1" class="Vim.ToolCommand1"/>
+        </Path>
+        <!--<Path name = "/Workspace/Tools">
                 <MenuItem id = "VimCommand1"
                           label = "Vim"
                           class = "Vim.ToolCommand1"/>
-        </Path>
+        </Path>-->
 </AddIn>

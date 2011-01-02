@@ -25,6 +25,7 @@ namespace Vim
                 /// <param name="k">Key</param>
                 /// <returns>returns true if acepteed</returns>
                 public bool AddNumber( KeyEventArgs e){
+                        if ( e.KeyboardDevice.Modifiers != ModifierKeys.None) return false;
                         if ((e.Key < Key.D0)||(e.Key>Key.D9)) return false;
                         _number*=10;
                         string nr = KeyDecoder( e);

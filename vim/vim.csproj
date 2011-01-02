@@ -32,9 +32,6 @@
     <Reference Include="ICSharpCode.AvalonEdit">
       <HintPath>..\..\..\..\..\..\Program Files\SharpDevelop\4.0\bin\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.AvalonEdit.AddIn">
-      <HintPath>..\..\..\..\..\..\Program Files\SharpDevelop\4.0\AddIns\DisplayBindings\AvalonEdit\ICSharpCode.AvalonEdit.AddIn.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.Core">
       <HintPath>..\..\..\..\..\..\Program Files\SharpDevelop\4.0\bin\ICSharpCode.Core.dll</HintPath>
     </Reference>
@@ -71,15 +68,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AddInWritingHelp.txt" />
+    <None Include="Text1.txt" />
     <None Include="Vim.addin">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AssemblyInfo.cs" />
-    <Compile Include="numbercolector.cs" />
     <Compile Include="Src\Command.cs" />
-    <Compile Include="VimHandler.cs" />
+    <Compile Include="Src\numbercolector.cs" />
+    <Compile Include="Src\VimHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
