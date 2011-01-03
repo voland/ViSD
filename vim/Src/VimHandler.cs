@@ -15,35 +15,14 @@ namespace Vim{
         /// <summary>
         /// public enum that represents the state of texteditor in vim mode
         /// </summary>
-        public enum State {
-                Unknown = 0,
-                Normal,
-                Command,
-                Delete,
-                Yank,
-                Visual,
-                VisualLine,
-                Insert,
-                Replace,
-                WriteChar,
-                Change,
-                Indent,
-                Unindent,
-                G,
-                Fold,
-                Mark,
-                GoToMark,
-                NameMacro,
-                PlayMacro
-        }
-        
         /// <summary>
         /// This is Vim handler which should be added to TextArea.ActiveInputHandler
         /// </summary>
-        public class VimHandler{
+        public class VimHandler: ITextAreaInputHandler{
                 
                 public VimHandler( TextArea ta ) {
                         TextArea = ta;
+                        // ta.ActiveInputHandler = this;
                         _txtarea.KeyDown+=KeyDown;
                         state = State.Command;
                         nc = new numbercolector();
@@ -60,10 +39,23 @@ namespace Vim{
                 
                 private void KeyDown(object sender, KeyEventArgs e) {
                         bool Handled = true;
-                        if ( !nc.AddNumber(e)){
-                                int rep = nc.Number;
-                                while ( (rep--)>0)
-                                        Handled = ServeKey( e);
+                        if (state==State.Insert){
+                                switch ( e.Key){
+                                        case Key.Escape:
+                                                state= State.Command;
+                                                Handled=true;
+                                                break;
+                                        default:
+                                                Handled=false;
+                                                break;
+                                }
+                                
+                        }else{
+                                if ( !nc.AddNumber(e)){
+                                        int rep = nc.Number;
+                                        while ( (rep--)>0)
+                                                Handled = ServeKey( e);
+                                }
                         }
                         e.Handled = Handled;
                 }
@@ -73,17 +65,7 @@ namespace Vim{
                         string key = KeyDecoder(e);
                         switch ( state ){
                                 case State.Insert:
-                                        switch ( e.Key){
-                                                case Key.Escape:
-                                                        state= State.Command;
-                                                        Handled=true;
-                                                        break;
-                                                default:
-                                                        Handled=false;
-                                                        break;
-                                        }
                                         break;
-                                        
                                 case State.Replace:
                                         switch ( e.Key){
                                                 case Key.Escape:
@@ -98,6 +80,10 @@ namespace Vim{
                                 case State.Command:
                                         if ( !MoveIfMovement(key)){
                                                 switch (key){
+                                                        case "Oem1": //":"
+                                                                state = State.CmdLine;
+                                                                CmdString = ":";
+                                                                break;
                                                         case "A":
                                                                 CurEOL();
                                                                 goto case "i";
@@ -120,9 +106,17 @@ namespace Vim{
                                                         case "X":
                                                                 Backspace();
                                                                 break;
+                                                        case "J":
+                                                                JoinLines();
+                                                                break;
                                                         case "o":
-                                                                CurEOL();
-                                                                TextArea.PerformTextInput("\n");
+                                                                if (ctrl(e)){
+                                                                        Back();
+                                                                        break;
+                                                                }else{
+                                                                        CurEOL();
+                                                                        TextArea.PerformTextInput("\n");
+                                                                }
                                                                 goto case "i";
                                                         case "C":
                                                                 DelEOL();
@@ -135,6 +129,12 @@ namespace Vim{
                                                                 CurEOL();
                                                                 TextArea.PerformTextInput("\n");
                                                                 goto case "i";
+                                                        case "u":
+                                                                Undo();
+                                                                break;
+                                                        case "r":
+                                                                if (ctrl(e)) Redo();
+                                                                break;
                                                         case "v":
                                                                 CurVisStarted = TextArea.Caret.Offset;
                                                                 SelectVisual( CurVisStarted, CurVisStarted);
@@ -173,8 +173,40 @@ namespace Vim{
                                         }
                                         Handled = true;
                                         break;
+                                case State.CmdLine:
+                                        assert(e.Key.ToString());
+                                        switch ( e.Key ){
+                                                case Key.Escape:
+                                                        state= State.Command;
+                                                        CmdString="";
+                                                        break;
+                                                case Key.Delete:
+                                                case Key.Back:
+                                                        CmdString = CmdString.Remove(CmdString.Length-1);
+                                                        break;
+                                                case Key.Enter:
+                                                        state = State.Command;
+                                                        string temp = CmdString;
+                                                        CmdString="";
+                                                        RunCommandLine(temp);
+                                                        break;
+                                                default:
+                                                        if (key.Length==1) CmdString+=key;
+                                                        break;
+                                        }
+                                        Handled = true;
+                                        if (CmdString.Length==0) state = State.Command;
+                                        break;
                         }
                         return Handled;
+                }
+                private void RunCommandLine( String cmd ){
+                        switch (cmd){
+                                case ":w":
+                                        break;
+                                case ":mak":
+                                        break;
+                        }
                 }
                 private void ApplyActionToSelection(String key){
                         switch ( key){
@@ -320,11 +352,26 @@ namespace Vim{
                         int end2 = TextArea.Document.GetLineByOffset(end).EndOffset;
                         SelectVisual(start2, end2);
                 }
+                private void JoinLines(){
+                        int cur = TextArea.Caret.Offset;
+                        CurEOL();
+                        TextArea.PerformTextInput(" ");
+                        while (IsEmptyUnderCur()) Delete();
+                        TextArea.Caret.Offset = cur;
+                }
                 
                 private void RemoveSelection(){
                         TextArea.Selection = ICSharpCode.AvalonEdit.Editing.Selection.Empty;
                 }
 
+                private void Back(){
+                        System.Windows.Input.NavigationCommands.BrowseBack.Execute(null, TextArea);
+                }
+                
+                private void Forward(){
+                        System.Windows.Input.NavigationCommands.BrowseForward.Execute(null, TextArea);
+                }
+                
                 private void DelEOL(){
                         System.Windows.Documents.EditingCommands.SelectToLineEnd.Execute(null, TextArea);
                         Delete();
@@ -341,6 +388,13 @@ namespace Vim{
                 
                 private void CurRight(){
                         System.Windows.Documents.EditingCommands.MoveRightByCharacter.Execute(null, TextArea);
+                }
+                
+                private void Undo(){
+                        System.Windows.Input.ApplicationCommands.Undo.Execute(null, TextArea);
+                }
+                private void Redo(){
+                        System.Windows.Input.ApplicationCommands.Redo.Execute(null, TextArea);
                 }
                 
                 private void CurLeftWord(){
@@ -376,16 +430,58 @@ namespace Vim{
                         return letter;
                 }
                 
+                private bool ctrl( KeyEventArgs e ){
+                        if ( e.KeyboardDevice.Modifiers == ModifierKeys.Control ) return true;
+                        return false;
+                }
+                
                 private void assert(String message){
                         WorkbenchSingleton.Workbench.StatusBar.SetMessage(message, false, null);
                 }
                 
                 //fields
+                private String CmdString{
+                        set {
+                                if ( value == ":") TextArea.ActiveInputHandler = this;
+                                if ( value == "" ) TextArea.ActiveInputHandler = TextArea.DefaultInputHandler;
+                                _cmdString = value;
+                                assert(_cmdString);
+                        }
+                        get{
+                                return _cmdString;
+                        }
+                }
+                private String _cmdString;
                 private int CurVisStarted;
                 private numbercolector nc;
                 private TextArea _txtarea;
-                private State state;
+                private State state{
+                        set{
+                                switch ( value ){
+                                        case State.Insert:
+                                                assert("-- INSERT --");
+                                                break;
+                                        case State.Command:
+                                                assert("-- COMMAND --");
+                                                break;
+                                        case State.Visual:
+                                        case State.VisualLine:
+                                                assert("-- VISUAL --");
+                                                break;
+                                }
+                                VimGlobal.state = value;
+                        }
+                        get{
+                                return VimGlobal.state;
+                        }
+                }
                 private KeyConverter KeyConv = new KeyConverter();
                 
+                
+                public void Attach() {
+                }
+                
+                public void Detach() {
+                }
         }
 }

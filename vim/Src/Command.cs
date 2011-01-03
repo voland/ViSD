@@ -6,9 +6,8 @@
  * 
  * Do zmiany tego szablonu użyj Narzędzia | Opcje | Kodowanie | Edycja Nagłówków Standardowych.
  * TODO: zrobic tak aby vim mode mogbyc wlaczony ma pasku zadan i aby wybor ten byl zapamietany
- * TODO: dodac plik do eksperymentow i wymyslic cos by preladowanie plugina bylo szybsze
  * TODO: zrobic prostokatna ikone przy command mode
- * TODO: zaiplementowac command BAR
+ * TODO: zaiplementowac command status BAR
  * TODO: zaimplementowac reszte komend
  */
 
@@ -24,35 +23,55 @@ using ICSharpCode.AvalonEdit.AddIn;
 
 namespace Vim{
 
+        public enum State {
+                Unknown = 0,
+                Normal,
+                Command,
+                CmdLine,
+                Delete,
+                Yank,
+                Visual,
+                VisualLine,
+                Insert,
+                Replace,
+                WriteChar,
+                Change,
+                Indent,
+                Unindent,
+                G,
+                Fold,
+                Mark,
+                GoToMark,
+                NameMacro,
+                PlayMacro
+        }
+        
+        public static class VimGlobal{
+                public static State state;
+        }
+        
+        
         public class ToolCommand1 : AbstractMenuCommand	{
-                AvalonEditViewContent tecp;
+                //AvalonEditViewContent tecp;
                 
                 public ToolCommand1(){
-                        //System.Windows.Forms.MessageBox.Show("Constructor!!!");
+//                      :  assert("VimPlugin");
                 }
                 
                 public override void Run(){
                         
-                        // Here an example that shows how to access the current text document:
-                        tecp = WorkbenchSingleton.Workbench.ActiveContent as AvalonEditViewContent;
                         //add vim functionality to every opened document
-                        WorkbenchSingleton.Workbench.ViewOpened += delegate(object sender, ViewContentEventArgs e) {
-                                AvalonEditViewContent aevc = e.Content as AvalonEditViewContent;
-                                if ( aevc !=null)
-                                        new VimHandler( aevc.CodeEditor.ActiveTextEditor.TextArea );
+                        WorkbenchSingleton.WorkbenchCreated+= delegate(object sender, EventArgs e) {
+                                WorkbenchSingleton.Workbench.ViewOpened += delegate(object sender2, ViewContentEventArgs e2) {
+                                        AvalonEditViewContent aevc = e2.Content as AvalonEditViewContent;
+                                        if ( aevc !=null)
+                                                new VimHandler( aevc.CodeEditor.ActiveTextEditor.TextArea );
+                                };
                         };
-                        
-//                        if (tecp == null) {
-//                                // active content is not a text editor control
-//                                System.Windows.Forms.MessageBox.Show("shit this is not a text editor at all! Bitch!");
-//                                return;
-//                        }else{
-//                                new VimHandler( tecp.CodeEditor.ActiveTextEditor.TextArea );
-//                        }
                 }
-                
-                
-
+                void assert( String s ){
+                        System.Windows.Forms.MessageBox.Show(s);
+                }
         }
 }
 
