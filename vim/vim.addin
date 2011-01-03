@@ -1,9 +1,9 @@
-﻿<AddIn name        = "Vim"
-       author      = "Voland"
+﻿<AddIn name        = "VimSD"
+       author      = "Arkadiusz Gil"
        url         = ""
-       description = "Vim keybinding emulator">
+       description = "Vim keybinding for SharpDevelop">
         
-  <!--      <Manifest>
+        <!--      <Manifest>
                 <Identity>Voland.Vim</Identity>
                 <Dependency in="SharpDevelop" version="4.0"/>
         </Manifest>
@@ -15,9 +15,4 @@
         <Path name="/Workspace/Autostart">
                 <Class id="VimCommand1" class="Vim.ToolCommand1"/>
         </Path>
-        <!--<Path name = "/Workspace/Tools">
-                <MenuItem id = "VimCommand1"
-                          label = "Vim"
-                          class = "Vim.ToolCommand1"/>
-        </Path>-->
 </AddIn>

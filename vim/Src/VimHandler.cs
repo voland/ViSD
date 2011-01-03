@@ -203,6 +203,7 @@ namespace Vim{
                 private void RunCommandLine( String cmd ){
                         switch (cmd){
                                 case ":w":
+                                        System.Windows.Forms.MessageBox.Show(cmd);
                                         break;
                                 case ":mak":
                                         break;

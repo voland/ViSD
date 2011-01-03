@@ -7,7 +7,6 @@
  * Do zmiany tego szablonu użyj Narzędzia | Opcje | Kodowanie | Edycja Nagłówków Standardowych.
  * TODO: zrobic tak aby vim mode mogbyc wlaczony ma pasku zadan i aby wybor ten byl zapamietany
  * TODO: zrobic prostokatna ikone przy command mode
- * TODO: zaiplementowac command status BAR
  * TODO: zaimplementowac reszte komend
  */
 
