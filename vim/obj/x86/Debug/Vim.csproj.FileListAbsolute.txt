@@ -17,8 +17,6 @@ C:\Documents and Settings\voland\My Documents\SharpDevelop Projects\Vim\Vim\obj\
 C:\Documents and Settings\voland\My Documents\SharpDevelop Projects\Vim\Vim\obj\x86\Debug\Vim.pdb
 C:\Documents and Settings\voland\My Documents\SharpDevelop Projects\Vim\Vim\bin\Debug\ICSharpCode.AvalonEdit.AddIn.dll
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\Vim.addin
-C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\Vim.dll
-C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\Vim.pdb
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\ICSharpCode.AvalonEdit.dll
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\ICSharpCode.Core.dll
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\ICSharpCode.SharpDevelop.dll
@@ -31,6 +29,8 @@ C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\AvalonD
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\Mono.Cecil.dll
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\log4net.dll
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\obj\x86\Debug\Vim.dll
-C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\obj\x86\Debug\Vim.pdb
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\ICSharpCode.AvalonEdit.AddIn.dll
+C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\ViSD.dll
+C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\ViSD.pdb
+C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\obj\x86\Debug\ViSD.dll
+C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\obj\x86\Debug\ViSD.pdb

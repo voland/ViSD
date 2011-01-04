@@ -9,8 +9,7 @@
 using System;
 using System.Windows.Input;
 
-namespace Vim
-{
+namespace ViSD{
         /// <summary>
         /// Description of numbercolector.
         /// </summary>

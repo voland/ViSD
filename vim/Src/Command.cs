@@ -1,27 +1,19 @@
-﻿/*
- * Utworzone przez SharpDevelop.
- * Użytkownik: voland
- * Data: 2010-12-25
- * Godzina: 19:01
- * 
- * Do zmiany tego szablonu użyj Narzędzia | Opcje | Kodowanie | Edycja Nagłówków Standardowych.
- * TODO: zrobic tak aby vim mode mogbyc wlaczony ma pasku zadan i aby wybor ten byl zapamietany
- * TODO: zrobic prostokatna ikone przy command mode
- * TODO: zaimplementowac reszte komend
- */
+﻿// Copyright (c) AlphaSierraPapa for the SharpDevelop Team (for details please see \doc\copyright.txt)
+// This code is distributed under MIT X11 license (for details please see \doc\license.txt)
 
 using System;
-using System.Text;
-using System.Windows.Input;
-using ICSharpCode.Core;
+using System.IO;
+using ICSharpCode.AvalonEdit.Rendering;
 using ICSharpCode.SharpDevelop;
-using ICSharpCode.SharpDevelop.Gui;
 using ICSharpCode.SharpDevelop.Editor;
-using ICSharpCode.AvalonEdit;
-using ICSharpCode.AvalonEdit.AddIn;
+using ICSharpCode.AvalonEdit.Editing;
 
-namespace Vim{
+//do comend
+using System.Windows.Documents;
+using System.Windows.Input;
 
+namespace ViSD {
+        
         public enum State {
                 Unknown = 0,
                 Normal,
@@ -49,28 +41,26 @@ namespace Vim{
                 public static State state;
         }
         
-        
-        public class ToolCommand1 : AbstractMenuCommand	{
-                //AvalonEditViewContent tecp;
+
+        // SharpDevelop creates one instance of EmbeddedImageLanguageBinding for each text editor.
+        public class Visd : DefaultLanguageBinding {
+                TextArea ta;
                 
-                public ToolCommand1(){
-//                      :  assert("VimPlugin");
+                public override void Attach(ITextEditor editor) {
+                        base.Attach(editor);
+                        ta = editor.GetService(typeof(TextArea)) as TextArea;
+                        if ( ta !=null){
+                                new VimHandler( ta );
+                        }
                 }
                 
-                public override void Run(){
-                        
-                        //add vim functionality to every opened document
-                        WorkbenchSingleton.WorkbenchCreated+= delegate(object sender, EventArgs e) {
-                                WorkbenchSingleton.Workbench.ViewOpened += delegate(object sender2, ViewContentEventArgs e2) {
-                                        AvalonEditViewContent aevc = e2.Content as AvalonEditViewContent;
-                                        if ( aevc !=null)
-                                                new VimHandler( aevc.CodeEditor.ActiveTextEditor.TextArea );
-                                };
-                        };
+                public override void Detach() {
+                        base.Detach();
                 }
-                void assert( String s ){
-                        System.Windows.Forms.MessageBox.Show(s);
+                
+                private void assert( String s){
+                        System.Windows.Forms.MessageBox.Show( s);
                 }
+                
         }
 }
-

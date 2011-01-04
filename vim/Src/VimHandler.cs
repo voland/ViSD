@@ -11,7 +11,7 @@ using ICSharpCode.AvalonEdit.Editing;
 using System.Windows.Input;
 using ICSharpCode.SharpDevelop.Gui;
 
-namespace Vim{
+namespace ViSD{
         /// <summary>
         /// public enum that represents the state of texteditor in vim mode
         /// </summary>
