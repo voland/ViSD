@@ -1,5 +1,13 @@
-﻿// Copyright (c) AlphaSierraPapa for the SharpDevelop Team (for details please see \doc\copyright.txt)
-// This code is distributed under MIT X11 license (for details please see \doc\license.txt)
+﻿// Gpl code created by Arkadiusz Gil (Voland)
+//TODO: Custom caret class
+//TODO: Class motion
+//TODO: Class counter
+//TODO: Class history
+//TODO: class keylogger for repeat actions
+//TODO: class find replace
+//TODO: class macro
+//TODO: class find char
+//TODO: clas command line
 
 using System;
 using System.IO;

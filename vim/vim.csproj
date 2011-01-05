@@ -78,9 +78,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AssemblyInfo.cs" />
-    <Compile Include="Src\Command.cs" />
+    <Compile Include="Src\main.cs" />
+    <Compile Include="Src\Modes\BasicMode.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdCaretDown.cs" />
+    <Compile Include="Src\Modes\ViCommadns\IViCommand.cs" />
+    <Compile Include="Src\Modes\IMode.cs" />
+    <Compile Include="Src\Modes\ViInputBinding.cs" />
+    <Compile Include="Src\Modes\ViInputList.cs" />
     <Compile Include="Src\numbercolector.cs" />
     <Compile Include="Src\VimHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Src\Modes" />
+    <Folder Include="Src\Modes\ViCommadns" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
