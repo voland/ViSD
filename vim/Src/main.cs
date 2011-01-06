@@ -13,7 +13,9 @@ using System;
 using System.IO;
 using ICSharpCode.AvalonEdit.Rendering;
 using ICSharpCode.SharpDevelop;
+using ICSharpCode.Core;
 using ICSharpCode.SharpDevelop.Editor;
+using ICSharpCode.SharpDevelop.Gui;
 using ICSharpCode.AvalonEdit.Editing;
 
 //do comend
@@ -21,54 +23,56 @@ using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace ViSD {
-        
-        public enum State {
-                Unknown = 0,
-                Normal,
-                Command,
-                CmdLine,
-                Delete,
-                Yank,
-                Visual,
-                VisualLine,
-                Insert,
-                Replace,
-                WriteChar,
-                Change,
-                Indent,
-                Unindent,
-                G,
-                Fold,
-                Mark,
-                GoToMark,
-                NameMacro,
-                PlayMacro
-        }
-        
-        public static class VimGlobal{
-                public static State state;
-        }
-        
+	
+	public enum State {
+		Command,
+		Insert
+	}
+	
+	public static class ViSDGlobalState{
+		public static State State{
+			get {
+				return _state;
+			}
+			set {
+				_state = value;
+				String message;
+				message = String.Format("-- {0} --", value.ToString());
+				StatusBar(message);
+				if ( StateChanged!=null)
+					StateChanged( null, value);
+			}
+		}
+		
+		private static void StatusBar(String message){
+			WorkbenchSingleton.Workbench.StatusBar.SetMessage(message, false, null);
+		}
+		
+		private static State _state;
+		public delegate void DelegateStateChanged(Object sender, State s);
+		public static event DelegateStateChanged StateChanged;
+	}
+	
 
-        // SharpDevelop creates one instance of EmbeddedImageLanguageBinding for each text editor.
-        public class Visd : DefaultLanguageBinding {
-                TextArea ta;
-                
-                public override void Attach(ITextEditor editor) {
-                        base.Attach(editor);
-                        ta = editor.GetService(typeof(TextArea)) as TextArea;
-                        if ( ta !=null){
-                                new VimHandler( ta );
-                        }
-                }
-                
-                public override void Detach() {
-                        base.Detach();
-                }
-                
-                private void assert( String s){
-                        System.Windows.Forms.MessageBox.Show( s);
-                }
-                
-        }
+	// SharpDevelop creates one instance of EmbeddedImageLanguageBinding for each text editor.
+	public class Visd : DefaultLanguageBinding {
+		TextArea ta;
+		
+		public override void Attach(ITextEditor editor) {
+			base.Attach(editor);
+			ta = editor.GetService(typeof(TextArea)) as TextArea;
+			if ( ta !=null){
+				new VimHandler( ta );
+			}
+		}
+		
+		public override void Detach() {
+			base.Detach();
+		}
+		
+		private void assert( String s){
+			System.Windows.Forms.MessageBox.Show( s);
+		}
+		
+	}
 }

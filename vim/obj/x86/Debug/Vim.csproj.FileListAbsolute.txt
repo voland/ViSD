@@ -34,3 +34,20 @@ C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\ViSD.dl
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\bin\Debug\ViSD.pdb
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\obj\x86\Debug\ViSD.dll
 C:\Documents and Settings\voland\My Documents\Projekty\vim\Vim\obj\x86\Debug\ViSD.pdb
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\Vim.addin
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ViSD.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ViSD.pdb
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ICSharpCode.AvalonEdit.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ICSharpCode.Core.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ICSharpCode.SharpDevelop.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ICSharpCode.Core.WinForms.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ICSharpCode.Core.Presentation.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ICSharpCode.SharpDevelop.Dom.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ICSharpCode.SharpDevelop.Widgets.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\AvalonDock.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\Mono.Cecil.dll
+C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\log4net.dll
+C:\Users\malwi\Desktop\ViSD\Vim\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\malwi\Desktop\ViSD\Vim\obj\x86\Debug\ViSD.dll
+C:\Users\malwi\Desktop\ViSD\Vim\obj\x86\Debug\ViSD.pdb
