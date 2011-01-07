@@ -12,16 +12,13 @@ using System.Windows.Input;
 
 namespace ViSD.Modes
 {
-	/// <summary>
-	/// Description of CommandMode.
-	/// </summary>
-	public class CommandMode:BasicMode	{
-		public CommandMode(VimHandler vh):base(vh){
-			AddCommand( new CmdGoToInsertMode(), Key.I, ModifierKeys.None);
-			AddCommand( new CmdCaretDown(), Key.J, ModifierKeys.None);
-			AddCommand( new CmdCaretUp(), Key.K, ModifierKeys.None);
-			AddCommand( new CmdCaretLeft(), Key.H, ModifierKeys.None);
-			AddCommand( new CmdCaretRight(), Key.L, ModifierKeys.None);
-		}
-	}
+        /// <summary>
+        /// Description of CommandMode.
+        /// </summary>
+        public class CommandMode:MoveMode{
+                public CommandMode(VimHandler vh):base(vh){
+                        AddCommand( new CmdGoToInsertMode(), Key.I, ModifierKeys.None);
+                        RestKeys = new CmdNothing();
+                }
+        }
 }

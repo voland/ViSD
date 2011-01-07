@@ -26,7 +26,9 @@ namespace ViSD {
 	
 	public enum State {
 		Command,
-		Insert
+		Insert,
+		FindChar,
+		FindCharBack
 	}
 	
 	public static class ViSDGlobalState{

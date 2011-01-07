@@ -22,7 +22,6 @@ namespace ViSD.Modes.ViCommadns {
                         if ( ta!=null ){
                                 System.Windows.Documents.EditingCommands.MoveLeftByCharacter.Execute(null, ta);
                         }
-                        
                 }
                 
                 bool IViCommand.CanExecute() {

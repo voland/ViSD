@@ -1,0 +1,38 @@
+﻿/*
+ * Utworzone przez SharpDevelop.
+ * Użytkownik: voland
+ * Data: 2011-01-07
+ * Godzina: 00:00
+ * 
+ * Do zmiany tego szablonu użyj Narzędzia | Opcje | Kodowanie | Edycja Nagłówków Standardowych.
+ */
+using System;
+using ICSharpCode.AvalonEdit.Editing;
+
+namespace ViSD.Modes{
+        /// <summary>
+        /// Description of FinCharMode.
+        /// </summary>
+        public class FindCharMode:BasicMode, IMode{
+                public FindCharMode(VimHandler vh):base(vh){
+                }
+                //TODO: Do better conversion from Key to string
+                bool IMode.ServeKey(System.Windows.Input.Key k, System.Windows.Input.ModifierKeys mk){
+                        if  ( mk!= System.Windows.Input.ModifierKeys.None) return true;
+                        int caret = vh.TextArea.Caret.Offset;
+                        String key = DecodeKey(k, mk);
+                        char ch = vh.TextArea.Document.GetCharAt(caret);
+                        while ( String.Format("{0}", ch) != key ){
+                                caret++;
+                                ch = vh.TextArea.Document.GetCharAt(caret);
+                                if ((ch=='\x0d')||(ch=='\x0a')) {
+                                        ViSDGlobalState.State = State.Command;
+                                        return true;
+                                }
+                        }
+                        vh.TextArea.Caret.Offset = caret;
+                        ViSDGlobalState.State = State.Command;
+                        return true;
+                }
+        }
+}
