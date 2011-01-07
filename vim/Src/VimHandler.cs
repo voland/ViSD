@@ -34,6 +34,8 @@ namespace ViSD{
                 private InsertMode InsertMode;
                 private FindCharMode FindCharMode;
                 private FindCharModeBack FindCharModeBack;
+                private TillCharMode TillCharMode;
+                private TillCharModeBack TillCharModeBack;
                 
                 
                 private IMode _mode;
@@ -45,6 +47,8 @@ namespace ViSD{
                         InsertMode = new InsertMode(this);
                         FindCharMode = new FindCharMode(this);
                         FindCharModeBack = new FindCharModeBack(this);
+                        TillCharMode = new TillCharMode(this);
+                        TillCharModeBack = new TillCharModeBack(this);
                         
                         ViSDGlobalState.StateChanged+= delegate(object sender, State s) {
                                 switch( s ){
@@ -60,7 +64,12 @@ namespace ViSD{
                                         case State.FindCharBack:
                                                 ActualMode = FindCharModeBack;
                                                 break;
-                                                
+                                        case State.TillChar:
+                                                ActualMode = TillCharMode;
+                                                break;
+                                        case State.TillCharBack:
+                                                ActualMode= TillCharModeBack;
+                                                break;
                                                 
                                 }
                         };

@@ -21,6 +21,7 @@ using ICSharpCode.AvalonEdit.Editing;
 //do comend
 using System.Windows.Documents;
 using System.Windows.Input;
+using ViSD.Modes;
 
 namespace ViSD {
 	
@@ -28,8 +29,16 @@ namespace ViSD {
 		Command,
 		Insert,
 		FindChar,
-		FindCharBack
+		FindCharBack,
+		TillChar,
+		TillCharBack
 	}
+        
+        public static class ViSDGlobalCharSearch{
+                public static IMode LastSearchMode;
+                public static Key LastSearchedKey;
+                public static ModifierKeys LastSearchedModifier;
+        }
 	
 	public static class ViSDGlobalState{
 		public static State State{
@@ -37,6 +46,7 @@ namespace ViSD {
 				return _state;
 			}
 			set {
+                                _prevstate = _state;
 				_state = value;
 				String message;
 				message = String.Format("-- {0} --", value.ToString());
@@ -45,6 +55,13 @@ namespace ViSD {
 					StateChanged( null, value);
 			}
 		}
+                
+                public static State PrevState{
+                        get {
+                                return _prevstate;
+                        }
+                }
+                private static State _prevstate;
 		
 		private static void StatusBar(String message){
 			WorkbenchSingleton.Workbench.StatusBar.SetMessage(message, false, null);

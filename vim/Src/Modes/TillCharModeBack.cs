@@ -13,23 +13,25 @@ namespace ViSD.Modes{
         /// <summary>
         /// Description of FinCharMode.
         /// </summary>
-        public class FindCharMode:BasicMode, IMode{
-                public FindCharMode(VimHandler vh):base(vh){
+        public class TillCharModeBack:BasicMode, IMode{
+                public TillCharModeBack(VimHandler vh):base(vh){
                 }
+                
                 bool IMode.ServeKey(System.Windows.Input.Key k, System.Windows.Input.ModifierKeys mk){
                         if  ( mk!= System.Windows.Input.ModifierKeys.None) return true;
                         int caret = vh.TextArea.Caret.Offset;
-                        caret++;
+                        caret--;
                         String key = DecodeKey(k, mk);
                         char ch = vh.TextArea.Document.GetCharAt(caret);
                         while ( String.Format("{0}", ch) != key ){
-                                caret++;
+                                caret--;
                                 ch = vh.TextArea.Document.GetCharAt(caret);
                                 if ((ch=='\x0d')||(ch=='\x0a')) {
                                         ViSDGlobalState.State = ViSDGlobalState.PrevState;
                                         return true;
                                 }
                         }
+                        caret++;
                         vh.TextArea.Caret.Offset = caret;
                         ViSDGlobalCharSearch.LastSearchMode=this;
                         ViSDGlobalCharSearch.LastSearchedKey=k;

@@ -11,7 +11,7 @@ using ICSharpCode.AvalonEdit.Editing;
 
 namespace ViSD.Modes.ViCommadns {
         /// <summary>
-        /// Description of CmdCaretDown.
+        /// Description of CmdCaretDown
         /// </summary>
         public class CmdCaretLeft:IViCommand {
                 public CmdCaretLeft() {

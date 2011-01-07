@@ -29,6 +29,11 @@ namespace ViSD.Modes
 			AddCommand( new CmdEndWordBig(), Key.E, ModifierKeys.Shift);
 			AddCommand( new CmdFindChar(), Key.F, ModifierKeys.None);
 			AddCommand( new CmdFinCharBack(), Key.F, ModifierKeys.Shift);
+			AddCommand( new CmdTillChar(), Key.T, ModifierKeys.None);
+			AddCommand( new CmdTillCharBack(), Key.T, ModifierKeys.Shift);
+			AddCommand( new CmdGoToMatchingBace(), Key.D5, ModifierKeys.Shift);
+			AddCommand( new CmdRepeatFindTillChar(), Key.Oem1, ModifierKeys.None);
+			AddCommand( new CmdFindWord(), Key.OemQuestion, ModifierKeys.None);
 		}
 	}
 }

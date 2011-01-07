@@ -44,6 +44,8 @@ namespace ViSD.Modes {
                         }
                         if (RestKeys!=null) {
                                 RestKeys.Execute(vh.TextArea);
+                                if ( mk== ModifierKeys.None)
+                                        System.Windows.MessageBox.Show(string.Format("Key {0} not implemented", k.ToString()));
                                 return true;
                         }
                         return false;

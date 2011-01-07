@@ -13,8 +13,8 @@ namespace ViSD.Modes{
         /// <summary>
         /// Description of FinCharMode.
         /// </summary>
-        public class FindCharMode:BasicMode, IMode{
-                public FindCharMode(VimHandler vh):base(vh){
+        public class TillCharMode:BasicMode, IMode{
+                public TillCharMode(VimHandler vh):base(vh){
                 }
                 bool IMode.ServeKey(System.Windows.Input.Key k, System.Windows.Input.ModifierKeys mk){
                         if  ( mk!= System.Windows.Input.ModifierKeys.None) return true;
@@ -30,6 +30,7 @@ namespace ViSD.Modes{
                                         return true;
                                 }
                         }
+                        caret--;
                         vh.TextArea.Caret.Offset = caret;
                         ViSDGlobalCharSearch.LastSearchMode=this;
                         ViSDGlobalCharSearch.LastSearchedKey=k;

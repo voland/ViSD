@@ -20,18 +20,22 @@ namespace ViSD.Modes{
                 bool IMode.ServeKey(System.Windows.Input.Key k, System.Windows.Input.ModifierKeys mk){
                         if  ( mk!= System.Windows.Input.ModifierKeys.None) return true;
                         int caret = vh.TextArea.Caret.Offset;
+                        caret--;
                         String key = DecodeKey(k, mk);
                         char ch = vh.TextArea.Document.GetCharAt(caret);
                         while ( String.Format("{0}", ch) != key ){
                                 caret--;
                                 ch = vh.TextArea.Document.GetCharAt(caret);
                                 if ((ch=='\x0d')||(ch=='\x0a')) {
-                                        ViSDGlobalState.State = State.Command;
+                                        ViSDGlobalState.State = ViSDGlobalState.PrevState;
                                         return true;
                                 }
                         }
                         vh.TextArea.Caret.Offset = caret;
-                        ViSDGlobalState.State = State.Command;
+                        ViSDGlobalCharSearch.LastSearchMode=this;
+                        ViSDGlobalCharSearch.LastSearchedKey=k;
+                        ViSDGlobalCharSearch.LastSearchedModifier=mk;
+                        ViSDGlobalState.State = ViSDGlobalState.PrevState;
                         return true;
                 }
         }
