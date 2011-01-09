@@ -34,6 +34,9 @@ namespace ViSD.Modes
 			AddCommand( new CmdGoToMatchingBace(), Key.D5, ModifierKeys.Shift);
 			AddCommand( new CmdRepeatFindTillChar(), Key.Oem1, ModifierKeys.None);
 			AddCommand( new CmdFindWord(), Key.OemQuestion, ModifierKeys.None);
+			AddCommand( new CmdFindWordBack(), Key.OemQuestion, ModifierKeys.Shift);
+			AddCommand( new CmdGoToNextFindResult(), Key.N, ModifierKeys.None);
+			AddCommand( new CmdGoToPrevFindResult(), Key.N, ModifierKeys.Shift);
 		}
 	}
 }

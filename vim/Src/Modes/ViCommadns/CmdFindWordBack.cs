@@ -1,26 +1,24 @@
 ﻿/*
  * Utworzone przez SharpDevelop.
  * Użytkownik: voland
- * Data: 2011-01-07
- * Godzina: 15:20
+ * Data: 2011-01-08
+ * Godzina: 22:55
  * 
  * Do zmiany tego szablonu użyj Narzędzia | Opcje | Kodowanie | Edycja Nagłówków Standardowych.
  */
 using System;
-using ICSharpCode.SharpDevelop.Editor.Search;
-using System.Collections.Generic;
 
 namespace ViSD.Modes.ViCommadns
 {
         /// <summary>
-        /// Description of CmdFindWord.
+        /// Description of CmdFindWordBack.
         /// </summary>
-        public class CmdFindWord:IViCommand{
-                public CmdFindWord(){
+        public class CmdFindWordBack:IViCommand{
+                public CmdFindWordBack(){
                 }
                 
                 public void Execute(object arg){
-                        ViSDGlobalState.State = State.FindWord;
+                        ViSDGlobalState.State = State.FindWordBack;
                 }
                 
                 public bool CanExecute(){

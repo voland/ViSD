@@ -24,74 +24,41 @@ using System.Windows.Input;
 using ViSD.Modes;
 
 namespace ViSD {
-	
-	public enum State {
-		Command,
-		Insert,
-		FindChar,
-		FindCharBack,
-		TillChar,
-		TillCharBack
-	}
         
-        public static class ViSDGlobalCharSearch{
-                public static IMode LastSearchMode;
-                public static Key LastSearchedKey;
-                public static ModifierKeys LastSearchedModifier;
-        }
-	
-	public static class ViSDGlobalState{
-		public static State State{
-			get {
-				return _state;
-			}
-			set {
-                                _prevstate = _state;
-				_state = value;
-				String message;
-				message = String.Format("-- {0} --", value.ToString());
-				StatusBar(message);
-				if ( StateChanged!=null)
-					StateChanged( null, value);
-			}
-		}
+        // SharpDevelop creates one instance of Visd for each text editor.
+        public class Visd : DefaultLanguageBinding {
+                TextArea ta;
+                VimHandler vh;
                 
-                public static State PrevState{
-                        get {
-                                return _prevstate;
+                public Visd(){
+                        ViSDGlobalState.StateChanged+= delegate(object sender, State s) {
+                                switch ( s){
+                                        case State.FindWord:
+                                                if ( ta.IsFocused )
+                                                        ta.ActiveInputHandler = new IncrementalSearch( ta, LogicalDirection.Forward);
+                                                break;
+                                        case State.FindWordBack:
+                                                if ( ta.IsFocused )
+                                                        ta.ActiveInputHandler = new IncrementalSearch( ta, LogicalDirection.Backward);
+                                                break;
+                                        default:
+                                                ta.ActiveInputHandler = vh;
+                                                break;
+                                }
+                        };
+                }
+                
+                public override void Attach(ITextEditor editor) {
+                        base.Attach(editor);
+                        ta = editor.GetService(typeof(TextArea)) as TextArea;
+                        vh = new VimHandler(ta);
+                        if ( ta !=null){
+                                ta.ActiveInputHandler = vh;
                         }
                 }
-                private static State _prevstate;
-		
-		private static void StatusBar(String message){
-			WorkbenchSingleton.Workbench.StatusBar.SetMessage(message, false, null);
-		}
-		
-		private static State _state;
-		public delegate void DelegateStateChanged(Object sender, State s);
-		public static event DelegateStateChanged StateChanged;
-	}
-	
-
-	// SharpDevelop creates one instance of EmbeddedImageLanguageBinding for each text editor.
-	public class Visd : DefaultLanguageBinding {
-		TextArea ta;
-		
-		public override void Attach(ITextEditor editor) {
-			base.Attach(editor);
-			ta = editor.GetService(typeof(TextArea)) as TextArea;
-			if ( ta !=null){
-				new VimHandler( ta );
-			}
-		}
-		
-		public override void Detach() {
-			base.Detach();
-		}
-		
-		private void assert( String s){
-			System.Windows.Forms.MessageBox.Show( s);
-		}
-		
-	}
+                
+                public override void Detach() {
+                        base.Detach();
+                }
+        }
 }

@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AddInWritingHelp.txt" />
+    <EmbeddedResource Include="Resources\IncrementalSearchCursor.cur" />
+    <EmbeddedResource Include="Resources\ReverseIncrementalSearchCursor.cur" />
     <None Include="Text1.txt" />
     <None Include="Vim.addin">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -75,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AssemblyInfo.cs" />
+    <Compile Include="Src\EnuState.cs" />
+    <Compile Include="Src\IncrementalSearch.cs" />
     <Compile Include="Src\main.cs" />
     <Compile Include="Src\Modes\BasicMode.cs" />
     <Compile Include="Src\Modes\CommandMode.cs" />
@@ -93,9 +97,12 @@
     <Compile Include="Src\Modes\ViCommadns\CmdFinCharBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFindChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFindWord.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdFindWordBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFullScreen.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGoToInsertMode.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGoToMatchingBace.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdGoToNextFindResult.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdGoToPrevFindResult.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextTab.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextWord.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextWordBig.cs" />
@@ -114,8 +121,12 @@
     <Compile Include="Src\Modes\ViInputList.cs" />
     <Compile Include="Src\numbercolector.cs" />
     <Compile Include="Src\VimHandler.cs" />
+    <Compile Include="Src\ViSDGlobalCharSearch.cs" />
+    <Compile Include="Src\ViSDGlobalState.cs" />
+    <Compile Include="Src\ViSDGlobalWordSearch.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources" />
     <Folder Include="Src\Modes" />
     <Folder Include="Src\Modes\ViCommadns" />
   </ItemGroup>
