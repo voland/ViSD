@@ -43,6 +43,8 @@ namespace ViSD.Modes
 			AddCommand( new CmdBOLSoft(), Key.D6, ModifierKeys.Shift);
 			AddCommand( new CmdBOLSoft(), Key.OemMinus, ModifierKeys.Shift);
 			AddCommand( new CmdBOLHard(), Key.D0, ModifierKeys.None);
+			AddCommand( new CmdNextLine(), Key.OemPlus, ModifierKeys.Shift);
+			AddCommand( new CmdPrevLine(), Key.OemMinus, ModifierKeys.None);
 		}
 	}
 }
