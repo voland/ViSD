@@ -45,6 +45,8 @@ namespace ViSD.Modes
 			AddCommand( new CmdBOLHard(), Key.D0, ModifierKeys.None);
 			AddCommand( new CmdNextLine(), Key.OemPlus, ModifierKeys.Shift);
 			AddCommand( new CmdPrevLine(), Key.OemMinus, ModifierKeys.None);
+			AddCommand( new CmdPrevParaghraph(), Key.OemOpenBrackets, ModifierKeys.Shift);
+			AddCommand( new CmdNextParagraph(), Key.Oem6, ModifierKeys.Shift);
 		}
 	}
 }
