@@ -8,6 +8,7 @@
  */
 using System;
 using ICSharpCode.AvalonEdit.Editing;
+using ICSharpCode.AvalonEdit.Document;
 
 namespace ViSD.Modes.ViCommadns
 {
@@ -15,17 +16,39 @@ namespace ViSD.Modes.ViCommadns
         /// Description of CmdNextParagraph.
         /// </summary>
         public class CmdNextParagraph:IViCommand{
+                private TextArea ta;
                 public CmdNextParagraph(){
                 }
                 
                 public void Execute(object arg){
-                        TextArea ta = arg as TextArea;
+                        ta = arg as TextArea;
                         if ( ta!=null ){
-                                System.Windows.Documents.EditingCommands.MoveDownByParagraph.Execute(null, ta);
+                                int line = ta.Caret.Line;
+                                int i;
+                                if ( ta.Caret.Line< ta.Document.LineCount)
+                                        i=ta.Caret.Line+1;
+                                else
+                                        i=1;
+                                for ( ; i!=ta.Caret.Line; i++){
+                                        if ( i>ta.Document.Lines.Count ) i=1;
+                                        if ( IsEmpty(ta.Document.Lines[i-1])) {
+                                                ta.Caret.Line = ta.Document.Lines[i-1].LineNumber;
+                                                ta.Caret.BringCaretToView();
+                                                return;
+                                        }
+                                }
                         }
                 }
                 
                 public bool CanExecute(){
+                        return true;
+                }
+                
+                private bool IsEmpty( DocumentLine dl ){
+                        for ( int i = dl.Offset; i<dl.EndOffset; i++){
+                                char ch = ta.Document.GetCharAt(i);
+                                if ((ch!=' ')&&(ch!='\t')) return false;
+                        }
                         return true;
                 }
         }

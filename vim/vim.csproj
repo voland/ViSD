@@ -108,12 +108,14 @@
     <Compile Include="Src\Modes\ViCommadns\CmdGoToPrevFindResult.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextIdent.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextLine.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdNextParagraph.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextTab.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextWord.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextWordBig.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNothing.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdPrevIdent.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdPrevLine.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdPrevParaghraph.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdPrevTab.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGoToCommandMode.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdPrevWord.cs" />
