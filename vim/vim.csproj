@@ -88,12 +88,15 @@
     <Compile Include="Src\Modes\MoveMode.cs" />
     <Compile Include="Src\Modes\TillCharMode.cs" />
     <Compile Include="Src\Modes\TillCharModeBack.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdBOLHard.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdBOLSoft.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdCaretDown.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdCaretLeft.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdCaretRight.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdCaretUp.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdEndWord.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdEndWordBig.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdEOL.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFinCharBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFindChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFindWord.cs" />

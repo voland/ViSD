@@ -39,6 +39,10 @@ namespace ViSD.Modes
 			AddCommand( new CmdGoToPrevFindResult(), Key.N, ModifierKeys.Shift);
 			AddCommand( new CmdPrevIdent(), Key.D3, ModifierKeys.Shift);
 			AddCommand( new CmdNextIdent(), Key.D8, ModifierKeys.Shift);
+			AddCommand( new CmdEOL(), Key.D4, ModifierKeys.Shift);
+			AddCommand( new CmdBOLSoft(), Key.D6, ModifierKeys.Shift);
+			AddCommand( new CmdBOLSoft(), Key.OemMinus, ModifierKeys.Shift);
+			AddCommand( new CmdBOLHard(), Key.D0, ModifierKeys.None);
 		}
 	}
 }
