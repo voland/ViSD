@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # SharpDevelop 4.0.0.7043
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vim", "Vim\Vim.csproj", "{B2CA08A1-F219-42C0-94B6-11386F518E75}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementy rozwiązania", "Elementy rozwiązania", "{4A66C57B-7AC2-42E5-801A-A6768427107F}"
+	ProjectSection(SolutionItems) = postProject
+		README = README
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
