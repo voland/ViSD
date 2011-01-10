@@ -37,6 +37,8 @@ namespace ViSD.Modes
 			AddCommand( new CmdFindWordBack(), Key.OemQuestion, ModifierKeys.Shift);
 			AddCommand( new CmdGoToNextFindResult(), Key.N, ModifierKeys.None);
 			AddCommand( new CmdGoToPrevFindResult(), Key.N, ModifierKeys.Shift);
+			AddCommand( new CmdPrevIdent(), Key.D3, ModifierKeys.Shift);
+			AddCommand( new CmdNextIdent(), Key.D8, ModifierKeys.Shift);
 		}
 	}
 }
