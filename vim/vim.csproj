@@ -121,6 +121,9 @@
     <Compile Include="Src\Modes\ViCommadns\CmdPrevWord.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdPrevWordBig.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdRepeatFindTillChar.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdScreenBottom.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdScreenMid.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdScreenTop.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdTillChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdTillCharBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdWithTools.cs" />
