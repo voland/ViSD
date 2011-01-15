@@ -50,6 +50,9 @@ namespace ViSD.Modes
 			AddCommand( new CmdScreenTop(), Key.H, ModifierKeys.Shift);
 			AddCommand( new CmdScreenBottom(), Key.L, ModifierKeys.Shift);
 			AddCommand( new CmdScreenMid(), Key.M, ModifierKeys.Shift);
+			AddCommand( new CmdGetArgToogleBookmark(), Key.M, ModifierKeys.None);
+			AddCommand( new CmdGetArgGoToBookmark(), Key.OemQuotes, ModifierKeys.None);
+			AddCommand( new CmdGetArgGoToBookmark(), Key.Oem3, ModifierKeys.None);
 		}
 	}
 }

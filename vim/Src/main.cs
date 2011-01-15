@@ -17,6 +17,7 @@ using ICSharpCode.Core;
 using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.SharpDevelop.Gui;
 using ICSharpCode.AvalonEdit.Editing;
+using ICSharpCode.AvalonEdit;
 
 //do comend
 using System.Windows.Documents;
@@ -29,8 +30,10 @@ namespace ViSD {
         public class Visd : DefaultLanguageBinding {
                 TextArea ta;
                 VimHandler vh;
+                TextEditor te;
                 
                 public Visd(){
+                        Bookmarks.ViSDGlobalBookmarks.Bookmarks.ToString();
                         ViSDGlobalState.StateChanged+= delegate(object sender, State s) {
                                 switch ( s){
                                         case State.FindWord:
@@ -50,9 +53,10 @@ namespace ViSD {
                 
                 public override void Attach(ITextEditor editor) {
                         base.Attach(editor);
-                        ta = editor.GetService(typeof(TextArea)) as TextArea;
-                        vh = new VimHandler(ta);
-                        if ( ta !=null){
+                        te = editor.GetService(typeof(TextEditor)) as TextEditor;
+                        if ( te !=null){
+                                ta = te.TextArea;
+                                vh = new VimHandler(ta, editor.FileName);
                                 ta.ActiveInputHandler = vh;
                         }
                 }

@@ -30,23 +30,26 @@ namespace ViSD{
                                 return _mode;
                         }
                 }
-                private CommandMode CommandMode;
-                private InsertMode InsertMode;
-                private FindCharMode FindCharMode;
-                private FindCharModeBack FindCharModeBack;
-                private TillCharMode TillCharMode;
-                private TillCharModeBack TillCharModeBack;
-                
-                
+                public readonly CommandMode CommandMode;
+                public readonly InsertMode InsertMode;
+                public readonly FindCharMode FindCharMode;
+                public readonly FindCharModeBack FindCharModeBack;
+                public readonly TillCharMode TillCharMode;
+                public readonly TillCharModeBack TillCharModeBack;
+                public readonly ArgumentMode ArgumentMode;
                 private IMode _mode;
                 
-                public VimHandler( TextArea ta ):base(ta) {
+                public readonly String FileName;
+                
+                public VimHandler( TextArea ta, String FileName ):base(ta) {
+                        this.FileName = FileName;
                         CommandMode = new CommandMode(this);
                         InsertMode = new InsertMode(this);
                         FindCharMode = new FindCharMode(this);
                         FindCharModeBack = new FindCharModeBack(this);
                         TillCharMode = new TillCharMode(this);
                         TillCharModeBack = new TillCharModeBack(this);
+                        ArgumentMode = new ArgumentMode(this);
                         
                         ViSDGlobalState.StateChanged+= delegate(object sender, State s) {
                                 switch( s ){
@@ -68,7 +71,9 @@ namespace ViSD{
                                         case State.TillCharBack:
                                                 ActualMode= TillCharModeBack;
                                                 break;
-                                                
+                                        case State.ArgumentMode:
+                                                ActualMode=ArgumentMode;
+                                                break;
                                 }
                         };
                         ViSDGlobalState.State = State.Command;

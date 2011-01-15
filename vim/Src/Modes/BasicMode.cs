@@ -18,7 +18,7 @@ namespace ViSD.Modes {
         /// </summary>
         public class BasicMode:IMode{
                 protected ViInputList ViInputList = new ViInputList();
-                protected VimHandler vh;
+                public VimHandler vh;
                 protected IViCommand PendingCommand;
                 public IViCommand RestKeys;
                 

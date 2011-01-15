@@ -20,6 +20,7 @@ namespace ViSD{
 		TillChar,
 		TillCharBack,
 		FindWord,
-		FindWordBack
+		FindWordBack,
+		ArgumentMode
 	}
 }

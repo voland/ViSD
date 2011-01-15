@@ -77,9 +77,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AssemblyInfo.cs" />
+    <Compile Include="Src\Bookmarks\BookmarkCollection.cs" />
+    <Compile Include="Src\Bookmarks\ViSDBookmark.cs" />
+    <Compile Include="Src\Bookmarks\ViSDGlobalBookmarks.cs" />
     <Compile Include="Src\EnuState.cs" />
     <Compile Include="Src\IncrementalSearch.cs" />
     <Compile Include="Src\main.cs" />
+    <Compile Include="Src\Modes\ArgumentMode.cs" />
     <Compile Include="Src\Modes\BasicMode.cs" />
     <Compile Include="Src\Modes\CommandMode.cs" />
     <Compile Include="Src\Modes\FindCharMode.cs" />
@@ -88,6 +92,8 @@
     <Compile Include="Src\Modes\MoveMode.cs" />
     <Compile Include="Src\Modes\TillCharMode.cs" />
     <Compile Include="Src\Modes\TillCharModeBack.cs" />
+    <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdGoToBookmark.cs" />
+    <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdToogleBookmark.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdBOLHard.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdBOLSoft.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdCaretDown.cs" />
@@ -102,6 +108,8 @@
     <Compile Include="Src\Modes\ViCommadns\CmdFindWord.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFindWordBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFullScreen.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdGetArgToogleBookmark.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdGetArgGoToBookmark.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGoToInsertMode.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGoToMatchingBace.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGoToNextFindResult.cs" />
@@ -141,6 +149,8 @@
     <Folder Include="Resources" />
     <Folder Include="Src\Modes" />
     <Folder Include="Src\Modes\ViCommadns" />
+    <Folder Include="Src\Bookmarks" />
+    <Folder Include="Src\Modes\ViCommadns\ArgumentCommands" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
