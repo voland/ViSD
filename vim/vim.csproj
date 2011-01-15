@@ -139,9 +139,9 @@
     <Compile Include="Src\Modes\IMode.cs" />
     <Compile Include="Src\Modes\ViInputBinding.cs" />
     <Compile Include="Src\Modes\ViInputList.cs" />
-    <Compile Include="Src\numbercolector.cs" />
     <Compile Include="Src\VimHandler.cs" />
     <Compile Include="Src\ViSDGlobalCharSearch.cs" />
+    <Compile Include="Src\ViSDGlobalCount.cs" />
     <Compile Include="Src\ViSDGlobalState.cs" />
     <Compile Include="Src\ViSDGlobalWordSearch.cs" />
   </ItemGroup>

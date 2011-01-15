@@ -33,7 +33,6 @@ namespace ViSD {
                 TextEditor te;
                 
                 public Visd(){
-                        Bookmarks.ViSDGlobalBookmarks.Bookmarks.ToString();
                         ViSDGlobalState.StateChanged+= delegate(object sender, State s) {
                                 switch ( s){
                                         case State.FindWord:

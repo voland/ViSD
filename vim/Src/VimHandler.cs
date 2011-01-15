@@ -81,6 +81,7 @@ namespace ViSD{
                 
                 private void KeyDown(object sender, KeyEventArgs e) {
                         e.Handled = ActualMode.ServeKey(e.Key, e.KeyboardDevice.Modifiers);
+                        ViSDGlobalCount.Process();
                 }
                 
                 public override void Attach() {

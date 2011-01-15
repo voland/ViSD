@@ -38,7 +38,7 @@ namespace ViSD.Modes {
                 /// <param name="k"></param>
                 /// <param name="mk">return true if key was served otheervise false</param>
                 /// <returns></returns>
-                bool IMode.ServeKey(Key k, ModifierKeys mk) {
+                public virtual bool ServeKey(Key k, ModifierKeys mk) {
                         foreach ( ViInputBinding vib in ViInputList ){
                                 if ( vib.ExeIfKey(vh.TextArea, k, mk) == true ) return true;
                         }
