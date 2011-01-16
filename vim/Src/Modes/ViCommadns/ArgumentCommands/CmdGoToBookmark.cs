@@ -18,6 +18,7 @@ namespace ViSD.Modes.ViCommadns.ArgumentCommands
                 }
                 
                 public void Execute(object arg){
+                        ViSDGlobalCount.ResetCommand();
                         ArgumentMode am = arg as ArgumentMode;
                         if ( am != null ) {
                                 int line = am.vh.TextArea.Caret.Line;

@@ -20,6 +20,7 @@ namespace ViSD.Modes.ViCommadns{
 		}
 		
 		void IViCommand.Execute(object arg)	{
+		        ViSDGlobalCount.ResetAll();
 			spw.Run();
 		}
 		

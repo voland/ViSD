@@ -26,6 +26,9 @@ namespace ViSD.Modes.ViCommadns
                 
                 //TODO: when caret moves besides visible layout of editor scroolbar must follow caret
                 public void Execute(object arg){
+                        ViSDGlobalCount.LastUsedArgument = arg;
+                        ViSDGlobalCount.LastUsedCommand = this;
+                        
                         ta = arg as TextArea;
                         if ( ta != null){
                                 word = ViSDGlobalWordSearch.SearchedWord;

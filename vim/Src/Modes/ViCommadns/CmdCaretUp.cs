@@ -18,6 +18,8 @@ namespace ViSD.Modes.ViCommadns {
                 }
                 
                 void IViCommand.Execute(object arg) {
+                        ViSDGlobalCount.LastUsedCommand = this;
+                        ViSDGlobalCount.LastUsedArgument = arg;
                         TextArea ta = arg as TextArea;
                         if ( ta!=null ){
                                 System.Windows.Documents.EditingCommands.MoveUpByLine.Execute(null, ta);

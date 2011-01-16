@@ -24,9 +24,13 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public void Execute(object arg){
+                        int temp = ViSDGlobalCount.Number;
                         Down.Execute(arg);
                         BolHard.Execute(arg);
                         Bol.Execute(arg);
+                        ViSDGlobalCount.Number = temp;
+                        ViSDGlobalCount.LastUsedCommand = this;
+                        ViSDGlobalCount.LastUsedArgument = arg;
                 }
                 
                 public bool CanExecute(){

@@ -19,6 +19,7 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 void IViCommand.Execute(object arg){
+                        ViSDGlobalCount.ResetAll();
                         System.Windows.Documents.EditingCommands.MoveToLineEnd.Execute(null, arg as TextArea);
                 }
                 

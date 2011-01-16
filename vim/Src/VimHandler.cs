@@ -32,10 +32,6 @@ namespace ViSD{
                 }
                 public readonly CommandMode CommandMode;
                 public readonly InsertMode InsertMode;
-                public readonly FindCharMode FindCharMode;
-                public readonly FindCharModeBack FindCharModeBack;
-                public readonly TillCharMode TillCharMode;
-                public readonly TillCharModeBack TillCharModeBack;
                 public readonly ArgumentMode ArgumentMode;
                 private IMode _mode;
                 
@@ -45,38 +41,13 @@ namespace ViSD{
                         this.FileName = FileName;
                         CommandMode = new CommandMode(this);
                         InsertMode = new InsertMode(this);
-                        FindCharMode = new FindCharMode(this);
-                        FindCharModeBack = new FindCharModeBack(this);
-                        TillCharMode = new TillCharMode(this);
-                        TillCharModeBack = new TillCharModeBack(this);
                         ArgumentMode = new ArgumentMode(this);
                         
                         ViSDGlobalState.StateChanged+= delegate(object sender, State s) {
-                                switch( s ){
-                                        case State.Insert:
-                                                ActualMode = InsertMode;
-                                                break;
-                                        case State.Command:
-                                                ActualMode = CommandMode;
-                                                break;
-                                        case State.FindChar:
-                                                ActualMode = FindCharMode;
-                                                break;
-                                        case State.FindCharBack:
-                                                ActualMode = FindCharModeBack;
-                                                break;
-                                        case State.TillChar:
-                                                ActualMode = TillCharMode;
-                                                break;
-                                        case State.TillCharBack:
-                                                ActualMode= TillCharModeBack;
-                                                break;
-                                        case State.ArgumentMode:
-                                                ActualMode=ArgumentMode;
-                                                break;
-                                }
+                                ActualMode = GetModeByState(s);
                         };
-                        ViSDGlobalState.State = State.Command;
+                        
+                        ActualMode = GetModeByState(ViSDGlobalState.State);
                 }
                 
                 private void KeyDown(object sender, KeyEventArgs e) {
@@ -92,6 +63,19 @@ namespace ViSD{
                 public override void Detach() {
                         base.Detach();
                         TextArea.KeyDown-=KeyDown;
+                }
+                
+                private IMode GetModeByState( State s ){
+                        switch( s ){
+                                case State.Insert:
+                                        return InsertMode;
+                                case State.Command:
+                                        return CommandMode;
+                                case State.ArgumentMode:
+                                        return ArgumentMode;
+                                default:
+                                        return CommandMode;
+                        }
                 }
         }
 }

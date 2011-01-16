@@ -20,6 +20,7 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public void Execute(object arg){
+                        ViSDGlobalCount.ResetCommand();
                         ViSDGlobalState.State = State.FindWord;
                 }
                 

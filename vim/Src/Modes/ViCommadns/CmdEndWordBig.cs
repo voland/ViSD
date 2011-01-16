@@ -18,6 +18,8 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public override void Execute(object arg){
+                        ViSDGlobalCount.LastUsedCommand = this;
+                        ViSDGlobalCount.LastUsedArgument = arg;
                         base.Execute(arg);
                         while ( IsEmptyUnderCur() ) CurRightWord();
                         do {

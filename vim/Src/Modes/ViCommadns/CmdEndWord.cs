@@ -10,6 +10,7 @@ using System;
 
 namespace ViSD.Modes.ViCommadns
 {
+        //TODO: doesnt work properly
         /// <summary>
         /// Description of CmdEndWord.
         /// </summary>
@@ -18,6 +19,8 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public override void Execute(object arg){
+                        ViSDGlobalCount.LastUsedCommand = this;
+                        ViSDGlobalCount.LastUsedArgument = arg;
                         base.Execute(arg);
                         while ( IsEmptyUnderCur() ) CurRightWord();
                         CurRightWord();

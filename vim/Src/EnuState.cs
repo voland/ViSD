@@ -15,10 +15,6 @@ namespace ViSD{
 	public enum State {
 		Command,
 		Insert,
-		FindChar,
-		FindCharBack,
-		TillChar,
-		TillCharBack,
 		FindWord,
 		FindWordBack,
 		ArgumentMode

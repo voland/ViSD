@@ -20,6 +20,7 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public void Execute(object arg){
+                        ViSDGlobalCount.ResetAll();
                         TextArea ta = arg as TextArea;
                         if ( ta!=null){
                                 VimHandler vh = ta.ActiveInputHandler as VimHandler;

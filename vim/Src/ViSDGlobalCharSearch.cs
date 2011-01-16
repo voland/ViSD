@@ -19,6 +19,8 @@ using ICSharpCode.AvalonEdit.Editing;
 using System.Windows.Documents;
 using System.Windows.Input;
 using ViSD.Modes;
+using ViSD.Modes.ViCommadns.ArgumentCommands;
+using ViSD.Modes.ViCommadns;
 
 namespace ViSD
 {
@@ -26,9 +28,8 @@ namespace ViSD
         /// Description of ViSDGlobalCharSearch.
         /// </summary>
         public static class ViSDGlobalCharSearch{
-                public static IMode LastSearchMode;
-                public static Key LastSearchedKey;
-                public static ModifierKeys LastSearchedModifier;
+                public static IViCommand LastSearchedMethod;
+                public static Object LastSeatchedArgument;
         }
 	
 }

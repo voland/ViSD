@@ -19,6 +19,7 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 void IViCommand.Execute(object arg){
+                        ViSDGlobalCount.ResetAll();
                         TextArea ta = arg as TextArea;
                         if ( ta!= null){
                                 ta.Caret.Column=0;

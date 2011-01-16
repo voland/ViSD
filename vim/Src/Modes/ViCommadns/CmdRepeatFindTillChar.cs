@@ -18,14 +18,16 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public void Execute(object arg){
+                        ViSDGlobalCount.LastUsedCommand = this;
+                        ViSDGlobalCount.LastUsedArgument = arg;
                         if ( CanExecute()){
-                                ViSDGlobalCharSearch.LastSearchMode.ServeKey( ViSDGlobalCharSearch.LastSearchedKey,
-                                                                             ViSDGlobalCharSearch.LastSearchedModifier);
+                                ViSDGlobalCharSearch.LastSearchedMethod.Execute( ViSDGlobalCharSearch.LastSeatchedArgument );
                         }
                 }
                 
                 public bool CanExecute(){
-                        if ( ViSDGlobalCharSearch.LastSearchMode !=null) return true;
+                        if ((ViSDGlobalCharSearch.LastSearchedMethod!=null)&&(ViSDGlobalCharSearch.LastSeatchedArgument!=null))
+                                return true;
                         return false;
                 }
         }

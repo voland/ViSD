@@ -26,6 +26,9 @@ namespace ViSD.Modes.ViCommadns
                         int begin, end, caret;
                         if ( ta!=null){
                                 if (CanExecute()){
+                                        ViSDGlobalCount.LastUsedCommand = cmdf;
+                                        ViSDGlobalCount.LastUsedArgument = ta;
+                                        
                                         caret = ta.Caret.Offset;
                                         while( IsLetter( caret-1 )) caret--;
                                         begin = caret;
@@ -38,6 +41,8 @@ namespace ViSD.Modes.ViCommadns
                                         else
                                                 ta.Caret.Offset = 0;
                                         cmdf.Execute(ta);
+                                }else{
+                                        ViSDGlobalCount.ResetAll();
                                 }
                         }
                 }

@@ -18,6 +18,7 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 void IViCommand.Execute(object arg){
+                        ViSDGlobalCount.ResetCommand();
                 }
                 
                 bool IViCommand.CanExecute(){

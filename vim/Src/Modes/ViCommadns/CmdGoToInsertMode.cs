@@ -18,6 +18,7 @@ namespace ViSD.Modes.ViCommadns
 		}
 		
 		public void Execute(object arg){
+	                ViSDGlobalCount.ResetAll();
 			ViSDGlobalState.State= State.Insert;
 		}
 		

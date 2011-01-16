@@ -22,6 +22,7 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public void Execute(object arg){
+                        ViSDGlobalCount.ResetAll();
                         ta = arg as TextArea;
                         int begin=-1;
                         int end=-1;

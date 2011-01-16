@@ -18,6 +18,7 @@ namespace ViSD.Modes
         public class CommandMode:MoveMode{
                 public CommandMode(VimHandler vh):base(vh){
                         AddCommand( new CmdGoToInsertMode(), Key.I, ModifierKeys.None);
+                        AddCommand( new CmdRepeatLastAction(), Key.OemPeriod, ModifierKeys.None);
                         RestKeys = new CmdNothing();
                 }
         }

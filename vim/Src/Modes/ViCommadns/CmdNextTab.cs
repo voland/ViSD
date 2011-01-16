@@ -22,6 +22,7 @@ namespace ViSD.Modes.ViCommadns
 		}
 		
 		void IViCommand.Execute(object arg){
+		        ViSDGlobalCount.ResetCommand();
 			snw.Run();
 		}
 		

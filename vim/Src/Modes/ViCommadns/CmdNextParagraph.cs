@@ -23,6 +23,8 @@ namespace ViSD.Modes.ViCommadns
                 public void Execute(object arg){
                         ta = arg as TextArea;
                         if ( ta!=null ){
+                                ViSDGlobalCount.LastUsedCommand = this;
+                                ViSDGlobalCount.LastUsedArgument = arg;
                                 int line = ta.Caret.Line;
                                 int i;
                                 if ( ta.Caret.Line< ta.Document.LineCount)
@@ -37,6 +39,8 @@ namespace ViSD.Modes.ViCommadns
                                                 return;
                                         }
                                 }
+                        }else{
+                                ViSDGlobalCount.ResetAll();
                         }
                 }
                 

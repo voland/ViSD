@@ -48,6 +48,7 @@ namespace ViSD.Modes
                                 }
                         }
                         e.Handled= true;
+                        ViSDGlobalCount.Process();
                         ViSDGlobalState.State = ViSDGlobalState.PrevState;
                 }
         }

@@ -72,6 +72,7 @@ namespace ViSD
                         
                         DisableIncrementalSearchCursor();
                         ClearStatusBarMessage();
+                        ViSDGlobalCount.Process();
                 }
                 
                 public void StopIncrementalSearch()
@@ -271,10 +272,17 @@ namespace ViSD
                         switch (e.Key) {
                                 case Key.Enter:
                                         ViSDGlobalWordSearch.SearchedWord = searchText.ToString();
+                                        if ( direction == LogicalDirection.Forward ){
+                                                ViSDGlobalCount.LastUsedCommand = new ViSD.Modes.ViCommadns.CmdGoToNextFindResult();
+                                        }else{
+                                                ViSDGlobalCount.LastUsedCommand = new ViSD.Modes.ViCommadns.CmdGoToPrevFindResult();
+                                        }
+                                        ViSDGlobalCount.LastUsedArgument = textArea;
                                         e.Handled = true;
                                         StopIncrementalSearch();
                                         break;
                                 case Key.Escape:
+                                        ViSDGlobalCount.ResetAll();
                                         e.Handled = true;
                                         StopIncrementalSearch();
                                         break;

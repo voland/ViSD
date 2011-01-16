@@ -19,6 +19,8 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public void Execute(object arg){
+                        ViSDGlobalCount.LastUsedCommand = this;
+                        ViSDGlobalCount.LastUsedArgument = arg;
                         System.Windows.Documents.EditingCommands.MoveLeftByWord.Execute(null, arg as TextArea);
                 }
                 

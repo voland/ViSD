@@ -1,32 +1,31 @@
 ﻿/*
  * Utworzone przez SharpDevelop.
  * Użytkownik: voland
- * Data: 2011-01-15
- * Godzina: 12:22
+ * Data: 2011-01-07
+ * Godzina: 00:54
  * 
  * Do zmiany tego szablonu użyj Narzędzia | Opcje | Kodowanie | Edycja Nagłówków Standardowych.
  */
 using System;
 using ICSharpCode.AvalonEdit.Editing;
-using ViSD.Modes.ViCommadns.ArgumentCommands;
 
 namespace ViSD.Modes.ViCommadns
 {
         /// <summary>
-        /// Description of CmdGetArgGoToBookmark.
+        /// Description of CmdGetArgFinCharBack.
         /// </summary>
-        //TODO: add difrent reaction for "'" and "`"
-        public class CmdGetArgGoToBookmark:IViCommand{
-                public CmdGetArgGoToBookmark(){
+        public class CmdGetArgFinCharBack:IViCommand
+        {
+                public CmdGetArgFinCharBack(){
                 }
                 
                 public void Execute(object arg){
-                        ViSDGlobalCount.ResetAll();
+                        ViSDGlobalCount.ResetCommand();
                         TextArea ta = arg as TextArea;
                         if ( ta!=null){
                                 VimHandler vh = ta.ActiveInputHandler as VimHandler;
                                 if ( vh!= null){
-                                        vh.ArgumentMode.ServeArgumentCmd = new CmdGoToBookmark();
+                                        vh.ArgumentMode.ServeArgumentCmd = new ArgumentCommands.CmdFindCharBack();
                                         ViSDGlobalState.State= State.ArgumentMode;
                                 }
                         }

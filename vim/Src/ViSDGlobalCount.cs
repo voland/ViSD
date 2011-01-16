@@ -54,6 +54,9 @@ namespace ViSD{
                                 if (_number==0) return 1;
                                 return _number;
                         }
+                        set {
+                                _number = value;
+                        }
                 }
                 
                 public static void Process(){
@@ -64,7 +67,7 @@ namespace ViSD{
                                         while ( r-->0){
                                                 LastUsedCommand.Execute(LastUsedArgument);
                                         }
-                                        ResetCommand();
+                                        ResetAll();
                                 }
                         }
                 }
@@ -80,7 +83,7 @@ namespace ViSD{
                 }
                 
                 private static KeyConverter KeyConv;
-                private static int _number;
+                public static int _number;
                 public static ViSD.Modes.ViCommadns.IViCommand LastUsedCommand;
                 public static Object LastUsedArgument;
         }

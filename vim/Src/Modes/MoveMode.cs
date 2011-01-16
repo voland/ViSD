@@ -27,10 +27,10 @@ namespace ViSD.Modes
                         AddCommand( new CmdPrevWordBig(), Key.B, ModifierKeys.Shift);
                         AddCommand( new CmdEndWord(), Key.E, ModifierKeys.None);
                         AddCommand( new CmdEndWordBig(), Key.E, ModifierKeys.Shift);
-                        AddCommand( new CmdFindChar(), Key.F, ModifierKeys.None);
-                        AddCommand( new CmdFinCharBack(), Key.F, ModifierKeys.Shift);
-                        AddCommand( new CmdTillChar(), Key.T, ModifierKeys.None);
-                        AddCommand( new CmdTillCharBack(), Key.T, ModifierKeys.Shift);
+                        AddCommand( new CmdGetArgFindChar(), Key.F, ModifierKeys.None);
+                        AddCommand( new CmdGetArgFinCharBack(), Key.F, ModifierKeys.Shift);
+                        AddCommand( new CmdGetArgTillChar(), Key.T, ModifierKeys.None);
+                        AddCommand( new CmdGetArgTillCharBack(), Key.T, ModifierKeys.Shift);
                         AddCommand( new CmdGoToMatchingBace(), Key.D5, ModifierKeys.Shift);
                         AddCommand( new CmdRepeatFindTillChar(), Key.Oem1, ModifierKeys.None);
                         AddCommand( new CmdFindWord(), Key.OemQuestion, ModifierKeys.None);
@@ -53,6 +53,7 @@ namespace ViSD.Modes
                         AddCommand( new CmdGetArgToogleBookmark(), Key.M, ModifierKeys.None);
                         AddCommand( new CmdGetArgGoToBookmark(), Key.OemQuotes, ModifierKeys.None);
                         AddCommand( new CmdGetArgGoToBookmark(), Key.Oem3, ModifierKeys.None);
+                        AddCommand( new CmdGoToLine(), Key.G, ModifierKeys.Shift);
                 }
                 
                 public override bool ServeKey(Key k, ModifierKeys mk){

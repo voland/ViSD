@@ -22,6 +22,7 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public void Execute(object arg){
+                        ViSDGlobalCount.ResetAll();
                         ta = arg as TextArea;
                         if ( ta!=null ){
                                 double TopLine = ta.TextView.ScrollOffset.Y;
