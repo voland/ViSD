@@ -19,12 +19,12 @@ namespace ViSD.Modes.ViCommadns
                 
                 public void Execute(object arg){
                         if ( CanExecute() ){
-                                ViSDGlobalCount.LastUsedCommand.Execute( ViSDGlobalCount.LastUsedArgument );
+                                ViSDGlobalCount.LastUsedCommandForDot.Execute( ViSDGlobalCount.LastUsedArgumentForDot );
                         }
                 }
                 
                 public bool CanExecute(){
-                        if ((ViSDGlobalCount.LastUsedCommand!=null)&&(ViSDGlobalCount.LastUsedArgument!=null))
+                        if ((ViSDGlobalCount.LastUsedCommandForDot!=null)&&(ViSDGlobalCount.LastUsedArgumentForDot!=null))
                                 return true;
                         else
                                 return false;

@@ -1,13 +1,9 @@
 ﻿// Gpl code created by Arkadiusz Gil (Voland)
 //TODO: Custom caret class
-//TODO: Class motion
-//TODO: Class counter
 //TODO: Class history
-//TODO: class keylogger for repeat actions
 //TODO: class find replace
 //TODO: class macro
-//TODO: class find char
-//TODO: clas command line
+//FIXME: dot shoul not repeat move commands
 
 using System;
 using System.IO;

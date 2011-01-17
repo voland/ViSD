@@ -32,14 +32,12 @@ namespace ViSD{
                         if (_number == 0) return false;
                         return true;
                 }
-                
                 /// <summary>
                 /// Resets internal No
                 /// </summary>
                 public static void RstNo(){
                         _number=0;
                 }
-                
                 private static String KeyDecoder( Key k, ModifierKeys m ){
                         bool CapLet = ( m == ModifierKeys.Shift );     //stands for capital letter
                         string letter = KeyConv.ConvertToString(k);
@@ -78,13 +76,38 @@ namespace ViSD{
                 }
                 
                 public static void ResetCommand(){
-                        LastUsedCommand=null;
-                        LastUsedArgument=null;
+                        _lastusedargument=null;
+                        _lastusedcommand=null;
                 }
                 
                 private static KeyConverter KeyConv;
                 public static int _number;
-                public static ViSD.Modes.ViCommadns.IViCommand LastUsedCommand;
-                public static Object LastUsedArgument;
+                
+                public static ViSD.Modes.ViCommadns.IViCommand LastUsedCommand{
+                        get{
+                                return _lastusedcommand;
+                        }
+                        set{
+                                _lastusedcommand = value;
+                                LastUsedCommandForDot = value;
+                        }
+                }
+                
+                public static Object LastUsedArgument{
+                        get{
+                                return _lastusedargument;
+                        }
+                        set{
+                                _lastusedargument = value;
+                                LastUsedArgumentForDot = value;
+                        }
+                }
+                
+                private static ViSD.Modes.ViCommadns.IViCommand _lastusedcommand;
+                private static Object _lastusedargument;
+                
+                public static ViSD.Modes.ViCommadns.IViCommand LastUsedCommandForDot;
+                public static Object LastUsedArgumentForDot;
+
         }
 }
