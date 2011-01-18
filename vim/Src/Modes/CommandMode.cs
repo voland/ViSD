@@ -19,6 +19,7 @@ namespace ViSD.Modes
                 public CommandMode(VimHandler vh):base(vh){
                         AddCommand( new CmdGoToInsertMode(), Key.I, ModifierKeys.None);
                         AddCommand( new CmdRepeatLastAction(), Key.OemPeriod, ModifierKeys.None);
+                        AddCommand( new CmdGetArgReplaceChar(), Key.R, ModifierKeys.None);
                         RestKeys = new CmdNothing();
                 }
         }
