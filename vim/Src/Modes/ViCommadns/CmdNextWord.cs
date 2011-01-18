@@ -14,6 +14,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdNextWord.
         /// </summary>
+        [Movement]
         public class CmdNextWord:IViCommand{
                 public CmdNextWord(){
                 }

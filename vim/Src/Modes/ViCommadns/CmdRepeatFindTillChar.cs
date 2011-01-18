@@ -13,6 +13,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdRepeatFindTillChar.
         /// </summary>
+        [Movement]
         public class CmdRepeatFindTillChar:IViCommand{
                 public CmdRepeatFindTillChar(){
                 }

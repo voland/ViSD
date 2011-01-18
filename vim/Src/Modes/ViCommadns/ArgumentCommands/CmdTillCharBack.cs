@@ -15,6 +15,7 @@ namespace ViSD.Modes.ViCommadns.ArgumentCommands
         /// <summary>
         /// Description of CmdTillCharBack.
         /// </summary>
+        [Movement]
         public class CmdTillCharBack:IViCommand{
                 public CmdTillCharBack(){
                 }

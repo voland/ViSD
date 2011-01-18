@@ -16,6 +16,9 @@ namespace ViSD.Modes
         /// Description of InsertMode.
         /// </summary>
         public class InsertMode:BasicMode{
+                private int CurOnBegin;
+                private int LenOnBegin;
+                
                 public InsertMode(VimHandler vh):base(vh){
                         AddCommand( new CmdGoToCommandMode(), Key.Escape, ModifierKeys.None);
                         base.Ataching += AtachingEventHandler;
@@ -23,21 +26,19 @@ namespace ViSD.Modes
                 }
                 
                 private void AtachingEventHandler( Object sender, EventArgs e){
-                        vh.TextArea.TextEntered +=TextEnteringEventHandler;
+                        CurOnBegin = vh.TextArea.Caret.Offset;
                 }
                 
                 private void DetachingEventHandler( Object sender, EventArgs e){
-                        vh.TextArea.TextEntered -=TextEnteringEventHandler;
                         if ( vh.TextArea.IsFocused ){
-                                ViSDGlobalCount.LastUsedCommand = new CmdServeViSDGlobalText();
-                                ViSDGlobalCount.LastUsedArgument = vh.TextArea;
-                                ViSDGlobalCount.Process();
-                        }
-                }
-                
-                private void TextEnteringEventHandler( Object sender, TextCompositionEventArgs e){
-                        if ( e.Text.Length >0){
-                                ViSDGlobalText.Text+=e.Text;
+                                LenOnBegin = vh.TextArea.Caret.Offset - CurOnBegin;
+                                if (LenOnBegin>0){
+                                        ViSDGlobalText.Text = vh.TextArea.Document.GetText(
+                                                CurOnBegin, LenOnBegin);
+                                        ViSDGlobalCount.LastUsedCommand = new CmdServeViSDGlobalText();
+                                        ViSDGlobalCount.LastUsedArgument = vh.TextArea;
+                                        ViSDGlobalCount.Process();
+                                }
                         }
                 }
         }

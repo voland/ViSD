@@ -15,6 +15,7 @@ namespace ViSD.Modes.ViCommadns.ArgumentCommands
         /// <summary>
         /// Description of CmdTillChar.
         /// </summary>
+        [Movement]
         public class CmdTillChar:IViCommand{
                 public CmdTillChar(){
                 }

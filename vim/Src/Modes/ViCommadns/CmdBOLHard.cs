@@ -11,6 +11,7 @@ using ICSharpCode.AvalonEdit.Editing;
 
 namespace ViSD.Modes.ViCommadns
 {
+        [Movement]
         /// <summary>
         /// Description of CmdBOLHard.
         /// </summary>

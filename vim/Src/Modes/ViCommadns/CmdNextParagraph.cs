@@ -15,6 +15,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdNextParagraph.
         /// </summary>
+        [Movement]
         public class CmdNextParagraph:IViCommand{
                 private TextArea ta;
                 public CmdNextParagraph(){

@@ -15,6 +15,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdGoToNextFindResult.
         /// </summary>
+        [Movement]
         public class CmdGoToNextFindResult:IViCommand{
                 private int startoffset;
                 private TextArea ta;

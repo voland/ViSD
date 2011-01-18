@@ -15,6 +15,7 @@ namespace ViSD.Modes.ViCommadns.ArgumentCommands
         /// <summary>
         /// Description of CmdFindCharBack.
         /// </summary>
+        [Movement]
         public class CmdFindCharBack:IViCommand{
                 public CmdFindCharBack(){
                 }

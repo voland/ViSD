@@ -13,6 +13,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdPrevLine.
         /// </summary>
+        [Movement]
         public class CmdPrevLine:IViCommand{
                 private IViCommand Up;
                 private IViCommand BolHard;

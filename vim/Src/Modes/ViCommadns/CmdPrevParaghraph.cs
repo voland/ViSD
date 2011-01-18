@@ -16,6 +16,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdPrevParagraph.
         /// </summary>
+        [Movement]
         public class CmdPrevParagraph:IViCommand{
                 private TextArea ta;
                 public CmdPrevParagraph(){

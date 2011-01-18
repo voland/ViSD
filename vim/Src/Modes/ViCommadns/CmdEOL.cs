@@ -14,6 +14,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdEOL.
         /// </summary>
+        [Movement]
         public class CmdEOL:IViCommand{
                 public CmdEOL(){
                 }

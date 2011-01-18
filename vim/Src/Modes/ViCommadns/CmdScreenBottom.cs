@@ -15,6 +15,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdScreenBottom.
         /// </summary>
+        [Movement]
         public class CmdScreenBottom:IViCommand{
                 private TextArea ta;
                 

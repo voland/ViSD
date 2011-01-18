@@ -14,6 +14,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdPrevIdent.
         /// </summary>
+        [Movement]
         public class CmdNextIdent:IViCommand{
                 TextArea ta;
                 CmdGoToNextFindResult cmdf;

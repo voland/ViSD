@@ -13,6 +13,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdEndWordBig.
         /// </summary>
+        [Movement]
         public class CmdEndWordBig:CmdWithTools{
                 public CmdEndWordBig():base(){
                 }

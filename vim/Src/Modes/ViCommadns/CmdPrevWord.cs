@@ -14,6 +14,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdPrevWord.
         /// </summary>
+        [Movement]
         public class CmdPrevWord:IViCommand{
                 public CmdPrevWord(){
                 }

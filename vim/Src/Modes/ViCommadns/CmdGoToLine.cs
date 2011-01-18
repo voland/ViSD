@@ -14,6 +14,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdGoToLine.
         /// </summary>
+        [Movement]
         public class CmdGoToLine:IViCommand{
                 public CmdGoToLine(){
                 }

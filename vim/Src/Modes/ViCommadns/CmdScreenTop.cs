@@ -15,6 +15,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdScreenTop.
         /// </summary>
+        [Movement]
         public class CmdScreenTop:IViCommand{
                 private TextArea ta;
                 

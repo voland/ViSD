@@ -13,6 +13,7 @@ namespace ViSD.Modes.ViCommadns {
         /// <summary>
         /// Description of CmdCaretDown
         /// </summary>
+        [Movement]
         public class CmdCaretLeft:IViCommand {
                 public CmdCaretLeft() {
                 }

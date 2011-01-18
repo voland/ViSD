@@ -15,6 +15,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdGoToMatchingBace.
         /// </summary>
+        [Movement]
         public class CmdGoToMatchingBace:IViCommand{
                 private GoToMatchingBrace mb;
                 public CmdGoToMatchingBace(){

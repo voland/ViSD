@@ -13,6 +13,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdNextWordBig.
         /// </summary>
+        [Movement]
         public class CmdNextWordBig:CmdWithTools{
                 public CmdNextWordBig():base(){
                 }

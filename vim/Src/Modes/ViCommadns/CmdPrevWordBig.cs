@@ -12,6 +12,7 @@ namespace ViSD.Modes.ViCommadns{
         /// <summary>
         /// Description of CmdPrevWordBig.
         /// </summary>
+        [Movement]
         public class CmdPrevWordBig:CmdWithTools{
                 public CmdPrevWordBig():base(){
                 }

@@ -13,6 +13,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdNextLine.
         /// </summary>
+        [Movement]
         public class CmdNextLine:IViCommand{
                 private IViCommand Down;
                 private IViCommand BolHard;

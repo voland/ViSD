@@ -8,6 +8,7 @@
  */
 using System;
 using System.Windows.Input;
+using ViSD.Modes.ViCommadns;
 
 namespace ViSD{
         /// <summary>
@@ -89,7 +90,9 @@ namespace ViSD{
                         }
                         set{
                                 _lastusedcommand = value;
-                                LastUsedCommandForDot = value;
+                                if ( !value.GetType().IsDefined(typeof(MovementAttribute), false)){
+                                        LastUsedCommandForDot = value;
+                                }
                         }
                 }
                 

@@ -141,6 +141,7 @@
     <Compile Include="Src\Modes\ViCommadns\CmdWithTools.cs" />
     <Compile Include="Src\Modes\ViCommadns\IViCommand.cs" />
     <Compile Include="Src\Modes\IMode.cs" />
+    <Compile Include="Src\Modes\ViCommadns\MovementAttribute.cs" />
     <Compile Include="Src\Modes\ViInputBinding.cs" />
     <Compile Include="Src\Modes\ViInputList.cs" />
     <Compile Include="Src\VimHandler.cs" />

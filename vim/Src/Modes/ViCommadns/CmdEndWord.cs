@@ -14,6 +14,7 @@ namespace ViSD.Modes.ViCommadns
         /// <summary>
         /// Description of CmdEndWord.
         /// </summary>
+        [Movement]
         public class CmdEndWord:CmdWithTools{
                 public CmdEndWord(){
                 }

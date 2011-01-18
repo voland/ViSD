@@ -13,6 +13,7 @@ namespace ViSD.Modes.ViCommadns.ArgumentCommands
         /// <summary>
         /// Description of CmdGoToBookmark.
         /// </summary>
+        [Movement]
         public class CmdGoToBookmark:IViCommand{
                 public CmdGoToBookmark(){
                 }
