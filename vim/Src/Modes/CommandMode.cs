@@ -26,6 +26,8 @@ namespace ViSD.Modes
                         AddCommand( new CmdAppend(), Key.A, ModifierKeys.None);
                         AddCommand( new CmdAppendEOL(), Key.A, ModifierKeys.Shift);
                         AddCommand( new CmdInsertBOL(), Key.I, ModifierKeys.Shift);
+                        AddCommand( new CmdOpenBelowInsert(), Key.O, ModifierKeys.None);
+                        AddCommand( new CmdOpenAboveInsert(), Key.O, ModifierKeys.Shift);
                         RestKeys = new CmdNothing();
                 }
         }
