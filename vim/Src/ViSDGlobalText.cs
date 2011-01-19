@@ -15,13 +15,27 @@ namespace ViSD
         /// Description of ViSDGlobalText.
         /// </summary>
         public class ViSDGlobalText{
-                public static IViCommand MoveCursor;
-                public static Object MoveCursorArg;
+                
+                public static IViCommand MoveCursor{
+                        get {return _MoveCursor;}
+                }
+                private static IViCommand _MoveCursor;
+                
+                public static Object MoveCursorArg{
+                        get {return _MoveCursorArg;}
+                }
+                private static Object _MoveCursorArg;
+                
                 public static string Text;
                 
                 public static void Reset(){
-                        MoveCursor = null;
-                        MoveCursorArg = null;
+                        _MoveCursor = null;
+                        _MoveCursorArg = null;
+                }
+                
+                public static void UpdateMove( IViCommand c, Object a){
+                        _MoveCursor = c;
+                        _MoveCursorArg = a;
                 }
         }
 }

@@ -270,10 +270,7 @@
                 //                        System.Windows.Documents.EditingCommands.SelectToLineEnd.Execute(null, TextArea);
                 //                        Delete();
                 //                }
-                //                private void CurEOL(){
-                //                        System.Windows.Documents.EditingCommands.MoveToLineEnd.Execute(null, TextArea);
-                //                }
-                //                private void CurBOL(){
+/                //                private void CurBOL(){
                 //                        System.Windows.Documents.EditingCommands.MoveToLineStart.Execute(null, TextArea);
                 //                }
 //
