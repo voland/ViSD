@@ -25,8 +25,7 @@ namespace ViSD.Modes.ViCommadns.ArgumentCommands
                         if ( am!=null){
                                 TextArea ta  = am.vh.TextArea;
                                 if ( ta !=null){
-                                        ViSDGlobalCount.LastUsedCommand = this;
-                                        ViSDGlobalCount.LastUsedArgument = arg;
+                                        ViSDGlobalCount.UpdLastUsed( this, arg );
                                         ViSDGlobalCharSearch.LastSeatchedArgument = am;
                                         ViSDGlobalCharSearch.LastSearchedMethod = this;
                                         int caret = ta.Caret.Offset;

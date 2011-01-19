@@ -25,10 +25,8 @@ namespace ViSD.Modes.ViCommadns
                 public CmdGoToNextFindResult(){
                 }
                 
-                //TODO: when caret moves besides visible layout of editor scroolbar must follow caret
                 public void Execute(object arg){
-                        ViSDGlobalCount.LastUsedArgument = arg;
-                        ViSDGlobalCount.LastUsedCommand = this;
+                        ViSDGlobalCount.UpdLastUsed( this, arg );
                         
                         ta = arg as TextArea;
                         if ( ta != null){

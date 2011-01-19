@@ -35,8 +35,9 @@ namespace ViSD.Modes
                                 if (LenOnBegin>0){
                                         ViSDGlobalText.Text = vh.TextArea.Document.GetText(
                                                 CurOnBegin, LenOnBegin);
-                                        ViSDGlobalCount.LastUsedCommand = new CmdServeViSDGlobalText();
-                                        ViSDGlobalCount.LastUsedArgument = vh.TextArea;
+                                        ViSDGlobalCount.UpdLastUsed(
+                                                new CmdServeViSDGlobalText(),
+                                                vh.TextArea );
                                         ViSDGlobalCount.Process();
                                 }
                         }

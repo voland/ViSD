@@ -273,11 +273,10 @@ namespace ViSD
                                 case Key.Enter:
                                         ViSDGlobalWordSearch.SearchedWord = searchText.ToString();
                                         if ( direction == LogicalDirection.Forward ){
-                                                ViSDGlobalCount.LastUsedCommand = new ViSD.Modes.ViCommadns.CmdGoToNextFindResult();
+                                                ViSDGlobalCount.UpdLastUsed( new ViSD.Modes.ViCommadns.CmdGoToNextFindResult(), textArea);
                                         }else{
-                                                ViSDGlobalCount.LastUsedCommand = new ViSD.Modes.ViCommadns.CmdGoToPrevFindResult();
+                                                ViSDGlobalCount.UpdLastUsed( new ViSD.Modes.ViCommadns.CmdGoToPrevFindResult(), textArea);
                                         }
-                                        ViSDGlobalCount.LastUsedArgument = textArea;
                                         e.Handled = true;
                                         StopIncrementalSearch();
                                         break;

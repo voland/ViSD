@@ -11,7 +11,6 @@ using ICSharpCode.AvalonEdit.Editing;
 
 namespace ViSD.Modes.ViCommadns
 {
-        //FIXME: repeating insert doesnt work properly when autocomplete is done
         /// <summary>
         /// Description of CmdServeViSDGlobalText.
         /// </summary>

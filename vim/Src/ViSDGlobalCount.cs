@@ -88,22 +88,22 @@ namespace ViSD{
                         get{
                                 return _lastusedcommand;
                         }
-                        set{
-                                _lastusedcommand = value;
-                                if ( !value.GetType().IsDefined(typeof(MovementAttribute), false)){
-                                        LastUsedCommandForDot = value;
-                                }
-                        }
                 }
                 
                 public static Object LastUsedArgument{
                         get{
                                 return _lastusedargument;
                         }
-                        set{
-                                _lastusedargument = value;
-                                LastUsedArgumentForDot = value;
+                }
+                
+                public static void UpdLastUsed( IViCommand c, Object a){
+                        _lastusedcommand = c;
+                        _lastusedargument = a;
+                        if ( !c.GetType().IsDefined(typeof(MovementAttribute), false)){
+                                LastUsedCommandForDot = c;
+                                LastUsedArgumentForDot = a;
                         }
+                        
                 }
                 
                 private static ViSD.Modes.ViCommadns.IViCommand _lastusedcommand;

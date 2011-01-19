@@ -3,7 +3,6 @@
 //TODO: Class history
 //TODO: class find replace
 //TODO: class macro
-//FIXME: dot shoul not repeat move commands
 
 using System;
 using System.IO;

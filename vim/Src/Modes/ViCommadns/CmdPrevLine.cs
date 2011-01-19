@@ -30,8 +30,7 @@ namespace ViSD.Modes.ViCommadns
                         BolHard.Execute(arg);
                         Bol.Execute(arg);
                         ViSDGlobalCount.Number = temp;
-                        ViSDGlobalCount.LastUsedCommand = this;
-                        ViSDGlobalCount.LastUsedArgument = arg;
+                        ViSDGlobalCount.UpdLastUsed( this, arg );
                 }
                 
                 public bool CanExecute(){

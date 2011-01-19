@@ -19,8 +19,7 @@ namespace ViSD.Modes.ViCommadns
                 }
                 
                 public void Execute(object arg){
-                        ViSDGlobalCount.LastUsedCommand = this;
-                        ViSDGlobalCount.LastUsedArgument = arg;
+                        ViSDGlobalCount.UpdLastUsed( this, arg );
                         if ( CanExecute()){
                                 ViSDGlobalCharSearch.LastSearchedMethod.Execute( ViSDGlobalCharSearch.LastSeatchedArgument );
                         }

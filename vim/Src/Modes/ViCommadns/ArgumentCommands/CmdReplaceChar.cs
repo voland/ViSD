@@ -24,8 +24,7 @@ namespace ViSD.Modes.ViCommadns.ArgumentCommands
                         if ( am!=null){
                                 TextArea ta  = am.vh.TextArea;
                                 if ( ta !=null){
-                                        ViSDGlobalCount.LastUsedCommand = this;
-                                        ViSDGlobalCount.LastUsedArgument = arg;
+                                        ViSDGlobalCount.UpdLastUsed( this, arg );
                                         String key = String.Format("{0}", am.Argument);
                                         am.vh.TextArea.Document.Replace(am.vh.TextArea.Caret.Offset,
                                                                         1,

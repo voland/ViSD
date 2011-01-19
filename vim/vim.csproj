@@ -92,6 +92,7 @@
     <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdFindChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdFindCharBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdGoToBookmark.cs" />
+    <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdReplaceChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdTillChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdTillCharBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdToogleBookmark.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Src\Modes\ViCommadns\CmdFindWord.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFindWordBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdFullScreen.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdGetArgReplaceChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGetArgToogleBookmark.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGetArgGoToBookmark.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGoToInsertMode.cs" />
