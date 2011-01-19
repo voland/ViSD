@@ -14,7 +14,7 @@ namespace ViSD.Modes.ViCommadns{
         /// Description of CmdWithTools.
         /// </summary>
         public class CmdWithTools:IViCommand{
-                private TextArea TextArea;
+                protected TextArea TextArea;
                 
                 public CmdWithTools(){
                 }
@@ -23,12 +23,20 @@ namespace ViSD.Modes.ViCommadns{
                         TextArea = arg as TextArea;
                 }
                 
-                public bool CanExecute(){
+                public virtual bool CanExecute(){
                         return true;
                 }
                 
                 protected bool IsEmptyUnderCur(){
                         int caret = TextArea.Caret.Offset;
+                        if  (( caret >= TextArea.Document.TextLength )||(caret<0)) return false;
+                        char ch = TextArea.Document.GetCharAt(caret);
+                        if (( ch == ' ' )||(ch=='\t')||(ch=='\x0d')||(ch=='\x0a')) return true;
+                        return false;
+                }
+                
+                protected bool IsEmptyUnder( int offset ){
+                        int caret = offset;
                         if  (( caret >= TextArea.Document.TextLength )||(caret<0)) return false;
                         char ch = TextArea.Document.GetCharAt(caret);
                         if (( ch == ' ' )||(ch=='\t')||(ch=='\x0d')||(ch=='\x0a')) return true;
@@ -63,5 +71,18 @@ namespace ViSD.Modes.ViCommadns{
                 protected void CurLeftWord(){
                         System.Windows.Documents.EditingCommands.MoveLeftByWord.Execute(null, TextArea);
                 }
+                
+                protected void CurEOL(){
+                        System.Windows.Documents.EditingCommands.MoveToLineEnd.Execute(null, TextArea);
+                }
+                
+                protected void Delete(){
+                        System.Windows.Documents.EditingCommands.Delete.Execute(null, TextArea);
+                }
+                protected void Backspace(){
+                        System.Windows.Documents.EditingCommands.Backspace.Execute(null, TextArea);
+                }
+
+
         }
 }

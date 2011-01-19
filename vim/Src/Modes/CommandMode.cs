@@ -20,6 +20,9 @@ namespace ViSD.Modes
                         AddCommand( new CmdGoToInsertMode(), Key.I, ModifierKeys.None);
                         AddCommand( new CmdRepeatLastAction(), Key.OemPeriod, ModifierKeys.None);
                         AddCommand( new CmdGetArgReplaceChar(), Key.R, ModifierKeys.None);
+                        AddCommand( new CmdDelete(), Key.X, ModifierKeys.None);
+                        AddCommand( new CmdBackspace(), Key.X, ModifierKeys.Shift);
+                        AddCommand( new CmdJoinLines(), Key.J, ModifierKeys.Shift);
                         RestKeys = new CmdNothing();
                 }
         }
