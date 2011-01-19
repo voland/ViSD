@@ -97,6 +97,7 @@
     <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdTillCharBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\ArgumentCommands\CmdToogleBookmark.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdAppend.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdAppendEOL.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdBackspace.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdBOLHard.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdBOLSoft.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Src\Modes\ViCommadns\CmdGoToMatchingBace.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGoToNextFindResult.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGoToPrevFindResult.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdInsertBOL.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdJoinLines.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextIdent.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdNextLine.cs" />

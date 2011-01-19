@@ -11,6 +11,7 @@ using ICSharpCode.AvalonEdit.Editing;
 
 namespace ViSD.Modes.ViCommadns
 {
+        //FIXME: this command should always start where the text starts
         [Movement]
         /// <summary>
         /// Description of CmdBOLSoft.
