@@ -76,6 +76,10 @@ namespace ViSD.Modes.ViCommadns{
                         System.Windows.Documents.EditingCommands.MoveToLineEnd.Execute(null, TextArea);
                 }
                 
+                protected void DelEOL(){
+                	System.Windows.Documents.EditingCommands.SelectToLineEnd.Execute(null, TextArea);
+                	Delete();
+                }
                 protected void Delete(){
                         System.Windows.Documents.EditingCommands.Delete.Execute(null, TextArea);
                 }

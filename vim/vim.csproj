@@ -105,6 +105,9 @@
     <Compile Include="Src\Modes\ViCommadns\CmdCaretLeft.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdCaretRight.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdCaretUp.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdChangeEOL.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdChangeEOLInsert.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdDelEOL.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdDelete.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdEndWord.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdEndWordBig.cs" />
