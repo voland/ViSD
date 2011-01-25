@@ -31,6 +31,7 @@ namespace ViSD.Modes
                         AddCommand( new CmdDelEOL(), Key.D, ModifierKeys.Shift);
                         AddCommand( new CmdChangeEOLInsert(), Key.C, ModifierKeys.Shift);
                         AddCommand( new CmdSubLineInsert(), Key.S, ModifierKeys.Shift);
+                        AddCommand( new CmdSubCharInsert(), Key.S, ModifierKeys.None);
                         RestKeys = new CmdNothing();
                 }
         }
