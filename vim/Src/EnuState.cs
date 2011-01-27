@@ -17,6 +17,7 @@ namespace ViSD{
 		Insert,
 		FindWord,
 		FindWordBack,
-		ArgumentMode
+		ArgumentMode,
+		Replace
 	}
 }

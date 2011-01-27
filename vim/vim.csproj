@@ -77,12 +77,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AssemblyInfo.cs" />
-    <Compile Include="Src\assert.cs" />
     <Compile Include="Src\Bookmarks\BookmarkCollection.cs" />
     <Compile Include="Src\Bookmarks\ViSDBookmark.cs" />
     <Compile Include="Src\Bookmarks\ViSDGlobalBookmarks.cs" />
     <Compile Include="Src\EnuState.cs" />
-    <Compile Include="Src\IncrementalSearch.cs" />
+    <Compile Include="Src\HandIncrementalSearch.cs" />
     <Compile Include="Src\main.cs" />
     <Compile Include="Src\Modes\ArgumentMode.cs" />
     <Compile Include="Src\Modes\BasicMode.cs" />
@@ -147,19 +146,27 @@
     <Compile Include="Src\Modes\ViCommadns\CmdPrevWordBig.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdRepeatFindTillChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdRepeatLastAction.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdRepeatReplace.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdReplaceMode.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdScreenBottom.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdScreenMid.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdScreenTop.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGetArgTillChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGetArgTillCharBack.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdServeViSDGlobalText.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdSubChar.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdSubCharInsert.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdSubLine.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdSubLineInsert.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdWithTools.cs" />
     <Compile Include="Src\Modes\ViCommadns\IViCommand.cs" />
     <Compile Include="Src\Modes\IMode.cs" />
     <Compile Include="Src\Modes\ViCommadns\MovementAttribute.cs" />
     <Compile Include="Src\Modes\ViInputBinding.cs" />
     <Compile Include="Src\Modes\ViInputList.cs" />
-    <Compile Include="Src\VimHandler.cs" />
+    <Compile Include="Src\HandReplace.cs" />
+    <Compile Include="Src\HandVimHandler.cs" />
+    <Compile Include="Src\tools\assert.cs" />
     <Compile Include="Src\ViSDGlobalCharSearch.cs" />
     <Compile Include="Src\ViSDGlobalCount.cs" />
     <Compile Include="Src\ViSDGlobalState.cs" />
@@ -172,6 +179,7 @@
     <Folder Include="Src\Modes\ViCommadns" />
     <Folder Include="Src\Bookmarks" />
     <Folder Include="Src\Modes\ViCommadns\ArgumentCommands" />
+    <Folder Include="Src\tools" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

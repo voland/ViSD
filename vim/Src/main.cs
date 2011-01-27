@@ -38,6 +38,9 @@ namespace ViSD {
                                                 if ( ta.IsFocused )
                                                         ta.ActiveInputHandler = new IncrementalSearch( ta, LogicalDirection.Backward);
                                                 break;
+                                        case State.Replace:
+                                                        ta.ActiveInputHandler = new Replace( ta );
+                                                break;
                                         default:
                                                 ta.ActiveInputHandler = vh;
                                                 break;

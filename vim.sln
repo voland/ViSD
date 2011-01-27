@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-# SharpDevelop 4.0.0.7043
+# SharpDevelop 4.0.0.7070
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementy rozwiązania", "Elementy rozwiązania", "{4A66C57B-7AC2-42E5-801A-A6768427107F}"
 	ProjectSection(SolutionItems) = postProject
 		README = README
