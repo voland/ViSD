@@ -50,3 +50,12 @@ C:\Users\malwi\Desktop\ViSD\Vim\bin\Debug\log4net.dll
 C:\Users\malwi\Desktop\ViSD\Vim\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\malwi\Desktop\ViSD\Vim\obj\x86\Debug\ViSD.dll
 C:\Users\malwi\Desktop\ViSD\Vim\obj\x86\Debug\ViSD.pdb
+C:\Users\malwi\ViSD\Vim\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\malwi\ViSD\Vim\bin\Debug\Vim.addin
+C:\Users\malwi\ViSD\Vim\bin\Debug\ViSD.dll
+C:\Users\malwi\ViSD\Vim\bin\Debug\ViSD.pdb
+C:\Users\malwi\ViSD\Vim\bin\Debug\ICSharpCode.AvalonEdit.dll
+C:\Users\malwi\ViSD\Vim\bin\Debug\ICSharpCode.Core.dll
+C:\Users\malwi\ViSD\Vim\bin\Debug\ICSharpCode.SharpDevelop.dll
+C:\Users\malwi\ViSD\Vim\obj\x86\Debug\ViSD.dll
+C:\Users\malwi\ViSD\Vim\obj\x86\Debug\ViSD.pdb

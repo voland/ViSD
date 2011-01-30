@@ -30,13 +30,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.AvalonEdit">
-      <HintPath>..\..\..\..\..\..\Program Files\SharpDevelop\4.0\bin\ICSharpCode.AvalonEdit.dll</HintPath>
+      <HintPath>dlls\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.Core">
-      <HintPath>..\..\..\..\..\..\Program Files\SharpDevelop\4.0\bin\ICSharpCode.Core.dll</HintPath>
+      <HintPath>dlls\ICSharpCode.Core.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpDevelop">
-      <HintPath>..\..\..\..\..\..\Program Files\SharpDevelop\4.0\bin\ICSharpCode.SharpDevelop.dll</HintPath>
+      <HintPath>dlls\ICSharpCode.SharpDevelop.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="PresentationCore">
