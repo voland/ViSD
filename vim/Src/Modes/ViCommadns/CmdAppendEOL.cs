@@ -16,7 +16,7 @@ namespace ViSD.Modes.ViCommadns
         public class CmdAppendEOL:CmdWithTools{
                 private IViCommand movecur;
                 public CmdAppendEOL(){
-                        movecur = new CmdEOL();
+                        movecur = new CmdAppendEOLPrepeare();
                 }
                 
                 public override void Execute(object arg){

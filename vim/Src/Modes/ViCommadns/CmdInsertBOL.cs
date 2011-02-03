@@ -16,7 +16,7 @@ namespace ViSD.Modes.ViCommadns
         public class CmdInsertBOL:CmdWithTools{
                 private IViCommand movecur;
                 public CmdInsertBOL(){
-                        movecur = new CmdBOLSoft();
+                        movecur = new CmdInsertBOLPrepeare();
                 }
                 
                 public override void Execute(object arg){

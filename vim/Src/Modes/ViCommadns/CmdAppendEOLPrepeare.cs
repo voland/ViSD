@@ -1,8 +1,8 @@
 ﻿/*
  * Utworzone przez SharpDevelop.
  * Użytkownik: voland
- * Data: 2011-01-19
- * Godzina: 21:37
+ * Data: 2011-01-06
+ * Godzina: 22:32
  * 
  * Do zmiany tego szablonu użyj Narzędzia | Opcje | Kodowanie | Edycja Nagłówków Standardowych.
  */
@@ -12,17 +12,19 @@ using ICSharpCode.AvalonEdit.Editing;
 namespace ViSD.Modes.ViCommadns
 {
         /// <summary>
-        /// Description of CmdOpenBelow.
+        /// Description of CmdAppendEOLPrepeare.
         /// </summary>
         [Movement]
-        public class CmdOpenBelow:CmdWithTools{
-                public CmdOpenBelow(){
+        public class CmdAppendEOLPrepeare:IViCommand{
+                public CmdAppendEOLPrepeare(){
                 }
                 
-                public override void Execute( Object arg ){
-                        base.Execute(arg);
+                void IViCommand.Execute(object arg){
                         System.Windows.Documents.EditingCommands.MoveToLineEnd.Execute(null, arg as TextArea);
-                        TextArea.PerformTextInput("\n");
+                }
+                
+                bool IViCommand.CanExecute(){
+                        return true;
                 }
         }
 }
