@@ -1,8 +1,10 @@
 ﻿// Gpl code created by Arkadiusz Gil (Voland)
-//TODO: Custom caret class
-//TODO: Class history
-//TODO: class find replace
-//TODO: class macro
+//TODO: Custom caret 
+//TODO: history
+//TODO: find replace
+//TODO: Komendy D i C na koncu lini nie dzialaja poprawnie
+//TODO: Join Lies doesn work properly if empty line below
+//TODO: macro
 
 using System;
 using System.IO;
@@ -20,7 +22,6 @@ using System.Windows.Input;
 using ViSD.Modes;
 
 namespace ViSD {
-        
         // SharpDevelop creates one instance of Visd for each text editor.
         public class Visd : DefaultLanguageBinding {
                 TextArea ta;

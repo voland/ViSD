@@ -155,6 +155,7 @@
     <Compile Include="Src\Modes\ViCommadns\CmdScreenTop.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGetArgTillChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdGetArgTillCharBack.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdServeEsc.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdServeViSDGlobalText.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdSubChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdSubCharInsert.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Src\Modes\ViInputList.cs" />
     <Compile Include="Src\HandReplace.cs" />
     <Compile Include="Src\HandVimHandler.cs" />
+    <Compile Include="Src\Modes\VisualMode.cs" />
     <Compile Include="Src\tools\assert.cs" />
     <Compile Include="Src\ViSDGlobalCharSearch.cs" />
     <Compile Include="Src\ViSDGlobalCount.cs" />

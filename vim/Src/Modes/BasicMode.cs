@@ -19,7 +19,6 @@ namespace ViSD.Modes {
         public class BasicMode:IMode{
                 protected ViInputList ViInputList = new ViInputList();
                 public VimHandler vh;
-                protected IViCommand PendingCommand;
                 public IViCommand RestKeys;
                 
                 public BasicMode(VimHandler vh) {
@@ -44,14 +43,11 @@ namespace ViSD.Modes {
                         }
                         if (RestKeys!=null) {
                                 RestKeys.Execute(vh.TextArea);
-                                if ( mk== ModifierKeys.None)
-                                        System.Windows.MessageBox.Show(string.Format("Key {0} not implemented", k.ToString()));
                                 return true;
                         }
                         return false;
                 }
                 
-                //TODO: DecodeKey doesnt support Capital letters etc
                 protected String DecodeKey(Key k, ModifierKeys mk){
                         bool CapLet = ( mk == ModifierKeys.Shift );     //stands for capital letter
                         string letter = KeyConv.ConvertToString(k);
@@ -61,13 +57,11 @@ namespace ViSD.Modes {
                         return letter;
                 }
 
-                void IMode.Atached(){
-                        if ( PendingCommand != null ) PendingCommand.Execute(vh.TextArea);
-                        PendingCommand= null;
+                public virtual void Atached(){
                         if ( Ataching!= null) Ataching( this, new EventArgs());
                 }
                 
-                void IMode.Detached(){
+                public virtual void Detached(){
                         if (Detaching !=null) Detaching(this, new EventArgs());
                 }
                 
