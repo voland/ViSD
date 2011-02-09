@@ -238,9 +238,6 @@
                 //                }
 //
 //
-                //                private void SelectVisual(int start, int end){
-                //                        TextArea.Selection = TextArea.Selection.StartSelectionOrSetEndpoint( start, end );
-                //                }
 //
                 //                private void SelectVisualLine( int start, int end){
                 //                        if ( start > end ) {
@@ -261,9 +258,6 @@
                 //                        TextArea.Caret.Offset = cur;
                 //                }
 //
-                //                private void RemoveSelection(){
-                //                        TextArea.Selection = ICSharpCode.AvalonEdit.Editing.Selection.Empty;
-                //                }
 //
 
                 //                private void DelEOL(){

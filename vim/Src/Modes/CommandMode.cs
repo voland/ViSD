@@ -12,29 +12,36 @@ using System.Windows.Input;
 
 namespace ViSD.Modes
 {
-        /// <summary>
-        /// Description of CommandMode.
-        /// </summary>
-        public class CommandMode:MoveMode{
-                public CommandMode(VimHandler vh):base(vh){
-                        AddCommand( new CmdGoToInsertMode(), Key.I, ModifierKeys.None);
-                        AddCommand( new CmdRepeatLastAction(), Key.OemPeriod, ModifierKeys.None);
-                        AddCommand( new CmdGetArgReplaceChar(), Key.R, ModifierKeys.None);
-                        AddCommand( new CmdDelete(), Key.X, ModifierKeys.None);
-                        AddCommand( new CmdBackspace(), Key.X, ModifierKeys.Shift);
-                        AddCommand( new CmdJoinLines(), Key.J, ModifierKeys.Shift);
-                        AddCommand( new CmdAppend(), Key.A, ModifierKeys.None);
-                        AddCommand( new CmdAppendEOL(), Key.A, ModifierKeys.Shift);
-                        AddCommand( new CmdInsertBOL(), Key.I, ModifierKeys.Shift);
-                        AddCommand( new CmdOpenBelowInsert(), Key.O, ModifierKeys.None);
-                        AddCommand( new CmdOpenAboveInsert(), Key.O, ModifierKeys.Shift);
-                        AddCommand( new CmdDelEOL(), Key.D, ModifierKeys.Shift);
-                        AddCommand( new CmdChangeEOLInsert(), Key.C, ModifierKeys.Shift);
-                        AddCommand( new CmdSubLineInsert(), Key.S, ModifierKeys.Shift);
-                        AddCommand( new CmdSubCharInsert(), Key.S, ModifierKeys.None);
-                        AddCommand( new CmdReplaceMode(), Key.R, ModifierKeys.Shift);
-                        AddCommand( new CmdServeEsc(), Key.Escape, ModifierKeys.None);
-                        RestKeys = new CmdNothing();
-                }
-        }
+	/// <summary>
+	/// Description of CommandMode.
+	/// </summary>
+	public class CommandMode:MoveMode{
+		public CommandMode(VimHandler vh):base(vh){
+			AddCommand( new CmdGoToInsertMode(), Key.I, ModifierKeys.None);
+			AddCommand( new CmdRepeatLastAction(), Key.OemPeriod, ModifierKeys.None);
+			AddCommand( new CmdGetArgReplaceChar(), Key.R, ModifierKeys.None);
+			AddCommand( new CmdDelete(), Key.X, ModifierKeys.None);
+			AddCommand( new CmdBackspace(), Key.X, ModifierKeys.Shift);
+			AddCommand( new CmdJoinLines(), Key.J, ModifierKeys.Shift);
+			AddCommand( new CmdAppend(), Key.A, ModifierKeys.None);
+			AddCommand( new CmdAppendEOL(), Key.A, ModifierKeys.Shift);
+			AddCommand( new CmdInsertBOL(), Key.I, ModifierKeys.Shift);
+			AddCommand( new CmdOpenBelowInsert(), Key.O, ModifierKeys.None);
+			AddCommand( new CmdOpenAboveInsert(), Key.O, ModifierKeys.Shift);
+			AddCommand( new CmdDelEOL(), Key.D, ModifierKeys.Shift);
+			AddCommand( new CmdChangeEOLInsert(), Key.C, ModifierKeys.Shift);
+			AddCommand( new CmdSubLineInsert(), Key.S, ModifierKeys.Shift);
+			AddCommand( new CmdSubCharInsert(), Key.S, ModifierKeys.None);
+			AddCommand( new CmdReplaceMode(), Key.R, ModifierKeys.Shift);
+			AddCommand( new CmdServeEsc(), Key.Escape, ModifierKeys.None);
+			AddCommand( new CmdSwitchVisualMode(), Key.V, ModifierKeys.None);
+			RestKeys = new CmdNothing();
+		}
+		
+		public override bool ServeKey(Key k, ModifierKeys mk) {
+			bool result = base.ServeKey(k, mk);
+			ViSDGlobalCount.Process();
+			return result;
+		}
+	}
 }

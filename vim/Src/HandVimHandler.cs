@@ -13,69 +13,72 @@ using ICSharpCode.SharpDevelop.Gui;
 using ViSD.Modes;
 
 namespace ViSD{
-        /// <summary>
-        /// public enum that represents the state of texteditor in vim mode
-        /// </summary>
-        /// <summary>
-        /// This is Vim handler which should be added to TextArea.ActiveInputHandler
-        /// </summary>
-        public class VimHandler:TextAreaDefaultInputHandler{
-                public IMode ActualMode{
-                        set{
-                                if ( _mode!=null ) _mode.Detached();
-                                _mode=value;
-                                _mode.Atached();
-                        }
-                        get{
-                                return _mode;
-                        }
-                }
-                public readonly CommandMode CommandMode;
-                public readonly InsertMode InsertMode;
-                public readonly ArgumentMode ArgumentMode;
-                private IMode _mode;
-                
-                public readonly String FileName;
-                
-                public VimHandler( TextArea ta, String FileName ):base(ta) {
-                        this.FileName = FileName;
-                        CommandMode = new CommandMode(this);
-                        InsertMode = new InsertMode(this);
-                        ArgumentMode = new ArgumentMode(this);
-                        
-                        ViSDGlobalState.StateChanged+= delegate(object sender, State s) {
-                                ActualMode = GetModeByState(s);
-                        };
-                        
-                        ActualMode = GetModeByState(ViSDGlobalState.State);
-                }
-                
-                private void KeyDown(object sender, KeyEventArgs e) {
-                        e.Handled = ActualMode.ServeKey(e.Key, e.KeyboardDevice.Modifiers);
-                        ViSDGlobalCount.Process();
-                }
-                
-                public override void Attach() {
-                        base.Attach();
-                        TextArea.KeyDown+=KeyDown;
-                }
-                
-                public override void Detach() {
-                        base.Detach();
-                        TextArea.KeyDown-=KeyDown;
-                }
-                
-                private IMode GetModeByState( State s ){
-                        switch( s ){
-                                case State.Insert:
-                                        return InsertMode;
-                                case State.Command:
-                                        return CommandMode;
-                                case State.ArgumentMode:
-                                        return ArgumentMode;
-                                default:
-                                        return CommandMode;
-                        }
-                }
-        }
+	/// <summary>
+	/// public enum that represents the state of texteditor in vim mode
+	/// </summary>
+	/// <summary>
+	/// This is Vim handler which should be added to TextArea.ActiveInputHandler
+	/// </summary>
+	public class VimHandler:TextAreaDefaultInputHandler{
+		public IMode ActualMode{
+			set{
+				if ( _mode!=null ) _mode.Detached();
+				_mode=value;
+				_mode.Atached();
+			}
+			get{
+				return _mode;
+			}
+		}
+		public readonly CommandMode CommandMode;
+		public readonly InsertMode InsertMode;
+		public readonly ArgumentMode ArgumentMode;
+		public readonly VisualMode VisualMode;
+		private IMode _mode;
+		
+		public readonly String FileName;
+		
+		public VimHandler( TextArea ta, String FileName ):base(ta) {
+			this.FileName = FileName;
+			CommandMode = new CommandMode(this);
+			InsertMode = new InsertMode(this);
+			ArgumentMode = new ArgumentMode(this);
+			VisualMode = new VisualMode(this);
+			
+			ViSDGlobalState.StateChanged+= delegate(object sender, State s) {
+				ActualMode = GetModeByState(s);
+			};
+			
+			ActualMode = GetModeByState(ViSDGlobalState.State);
+		}
+		
+		private void KeyDown(object sender, KeyEventArgs e) {
+			e.Handled = ActualMode.ServeKey(e.Key, e.KeyboardDevice.Modifiers);
+		}
+		
+		public override void Attach() {
+			base.Attach();
+			TextArea.KeyDown+=KeyDown;
+		}
+		
+		public override void Detach() {
+			base.Detach();
+			TextArea.KeyDown-=KeyDown;
+		}
+		
+		private IMode GetModeByState( State s ){
+			switch( s ){
+				case State.Insert:
+					return InsertMode;
+				case State.Command:
+					return CommandMode;
+				case State.ArgumentMode:
+					return ArgumentMode;
+				case State.Visual:
+					return VisualMode;
+				default:
+					return CommandMode;
+			}
+		}
+	}
 }

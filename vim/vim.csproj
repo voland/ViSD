@@ -161,6 +161,7 @@
     <Compile Include="Src\Modes\ViCommadns\CmdSubCharInsert.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdSubLine.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdSubLineInsert.cs" />
+    <Compile Include="Src\Modes\ViCommadns\CmdSwitchVisualMode.cs" />
     <Compile Include="Src\Modes\ViCommadns\CmdWithTools.cs" />
     <Compile Include="Src\Modes\ViCommadns\IViCommand.cs" />
     <Compile Include="Src\Modes\IMode.cs" />
