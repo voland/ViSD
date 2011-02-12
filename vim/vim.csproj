@@ -166,6 +166,13 @@
     <Compile Include="Src\Modes\ViCommadns\IViCommand.cs" />
     <Compile Include="Src\Modes\IMode.cs" />
     <Compile Include="Src\Modes\ViCommadns\MovementAttribute.cs" />
+    <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdCut.cs" />
+    <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdPaste.cs" />
+    <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdPasteCopy.cs" />
+    <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdRepeatReplaceString.cs" />
+    <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdReplaceChar.cs" />
+    <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdReplaceString.cs" />
+    <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdYank.cs" />
     <Compile Include="Src\Modes\ViInputBinding.cs" />
     <Compile Include="Src\Modes\ViInputList.cs" />
     <Compile Include="Src\HandReplace.cs" />
@@ -173,6 +180,7 @@
     <Compile Include="Src\Modes\VisualMode.cs" />
     <Compile Include="Src\tools\assert.cs" />
     <Compile Include="Src\ViSDGlobalCharSearch.cs" />
+    <Compile Include="Src\ViSDGlobalClipBoard.cs" />
     <Compile Include="Src\ViSDGlobalCount.cs" />
     <Compile Include="Src\ViSDGlobalState.cs" />
     <Compile Include="Src\ViSDGlobalText.cs" />
@@ -184,6 +192,7 @@
     <Folder Include="Src\Modes\ViCommadns" />
     <Folder Include="Src\Bookmarks" />
     <Folder Include="Src\Modes\ViCommadns\ArgumentCommands" />
+    <Folder Include="Src\Modes\ViCommadns\VisualCommands" />
     <Folder Include="Src\tools" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />

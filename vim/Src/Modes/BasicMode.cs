@@ -26,6 +26,7 @@ namespace ViSD.Modes {
                         AddCommand(new CmdNextTab(), Key.PageDown, ModifierKeys.Control);
                         AddCommand( new CmdPrevTab(), Key.PageUp, ModifierKeys.Control);
                         AddCommand( new CmdFullScreen(), Key.F11, ModifierKeys.None);
+						AddCommand( new CmdGoToCommandMode(), Key.Escape, ModifierKeys.None);
                 }
                 
                 public void AddCommand(IViCommand vc, Key k, ModifierKeys mk){
