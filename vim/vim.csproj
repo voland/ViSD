@@ -169,6 +169,7 @@
     <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdCut.cs" />
     <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdPaste.cs" />
     <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdPasteCopy.cs" />
+    <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdRepeatReplaceChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdRepeatReplaceString.cs" />
     <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdReplaceChar.cs" />
     <Compile Include="Src\Modes\ViCommadns\VisualCommands\CmdReplaceString.cs" />

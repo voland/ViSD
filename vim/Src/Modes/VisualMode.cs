@@ -39,7 +39,8 @@ namespace ViSD.Modes {
 			AddCommand( rep, Key.C, ModifierKeys.Shift);
 			AddCommand( rep, Key.S, ModifierKeys.None);
 			AddCommand( rep, Key.S, ModifierKeys.Shift);
-			           
+			AddCommand( new CmdReplaceChar(), Key.R, ModifierKeys.None);
+			
 			RestKeys = new CmdNothing();
 		}
 		
@@ -72,7 +73,9 @@ namespace ViSD.Modes {
 				}
 				if ( end < (vh.TextArea.Document.Text.Length -1)) end++;
 				vh.TextArea.Selection = vh.TextArea.Selection.StartSelectionOrSetEndpoint( start, end );
-			} else {
+			} else if ( ViSDGlobalState.State == State.ArgumentMode ){
+				//do nothing
+			} else{
 				RemoveSelection();
 			}
 		}
