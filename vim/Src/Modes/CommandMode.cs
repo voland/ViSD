@@ -35,6 +35,7 @@ namespace ViSD.Modes
 			AddCommand( new CmdReplaceMode(), Key.R, ModifierKeys.Shift);
 			AddCommand( new CmdServeEsc(), Key.Escape, ModifierKeys.None);
 			AddCommand( new CmdSwitchVisualMode(), Key.V, ModifierKeys.None);
+			AddCommand( new CmdSwitchVisualLineMode(), Key.V, ModifierKeys.Shift);
 			RestKeys = new CmdNothing();
 		}
 		

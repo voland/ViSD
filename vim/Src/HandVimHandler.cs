@@ -34,6 +34,7 @@ namespace ViSD{
 		public readonly InsertMode InsertMode;
 		public readonly ArgumentMode ArgumentMode;
 		public readonly VisualMode VisualMode;
+		public readonly VisualLineMode VisualLineMode;
 		private IMode _mode;
 		
 		public readonly String FileName;
@@ -44,6 +45,7 @@ namespace ViSD{
 			InsertMode = new InsertMode(this);
 			ArgumentMode = new ArgumentMode(this);
 			VisualMode = new VisualMode(this);
+			VisualLineMode = new VisualLineMode(this);
 			
 			ViSDGlobalState.StateChanged+= delegate(object sender, State s) {
 				ActualMode = GetModeByState(s);
@@ -76,6 +78,8 @@ namespace ViSD{
 					return ArgumentMode;
 				case State.Visual:
 					return VisualMode;
+				case State.VisualLine:
+					return VisualLineMode;
 				default:
 					return CommandMode;
 			}

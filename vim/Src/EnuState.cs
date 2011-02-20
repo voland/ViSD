@@ -19,6 +19,7 @@ namespace ViSD{
 		FindWordBack,
 		ArgumentMode,
 		Replace, 
-		Visual
+		Visual,
+		VisualLine
 	}
 }
